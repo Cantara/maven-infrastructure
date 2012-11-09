@@ -41,5 +41,3 @@ https://github.com/Cantara/maven-infrastructure/tree/master/zulu
 ## Aggregated log-server
 An initial setup for the greylog2 log-server is provided 
 
-
-
