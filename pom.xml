@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>no.cantara.emi</groupId>
     <artifactId>parent</artifactId>
-    <version>2</version>
+    <version>3</version>
     <packaging>pom</packaging>
     <name>Cantara Parent POM</name>
 
@@ -11,6 +11,13 @@
         <developer>
             <name>Erik Drolshammer</name>
             <email>erik-dev@fjas.no</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Bard Lind</name>
+            <email>bard.lind@gmail.com</email>
             <roles>
                 <role>Developer</role>
             </roles>
@@ -101,7 +108,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
-                    <version>2.4.2</version>
+                    <version>2.5</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
