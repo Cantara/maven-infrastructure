@@ -1,4 +1,5 @@
-scm-api:latest
-git-client:latest
-git:latest
-maven-plugin:latest
+scm-api:0.2
+github:1.11.3
+git:2.3.5
+maven-plugin:2.9
+docker-plugin:0.9.0-rc1 
