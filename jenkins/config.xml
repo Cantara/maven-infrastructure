@@ -13,8 +13,8 @@
   <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
   <jdks>
     <jdk>
-      <name>java</name>
-      <home>/usr/lib/jvm/default-java</home>
+      <name>openjdk8</name>
+      <home>/usr/lib/jvm/java-8-openjdk-amd64</home>
       <properties/>
     </jdk>
   </jdks>
