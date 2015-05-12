@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install -y maven2 && rm -rf /var/lib/apt/lists/*
 USER jenkins 
 
 COPY hudson.tasks.Maven.xml /usr/share/jenkins/ref/hudson.tasks.Maven.xml
+#TODO openjdk 7 is currently installed, should use zulu jdk8 
+COPY config.xml /usr/share/jenkins/ref/config.xml
 
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
