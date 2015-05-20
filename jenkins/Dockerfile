@@ -2,7 +2,7 @@
 #TODO use zulu jdk8 
 FROM java:8u45-jdk
 
-RUN apt-get update && apt-get install -y wget git curl zip maven2 && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y wget git curl zip maven && rm -rf /var/lib/apt/lists/*
 
 ENV JENKINS_HOME /var/jenkins_home
 
