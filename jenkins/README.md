@@ -1,37 +1,11 @@
-# Maven Infrastructure using Docker
+# Jenkins 
 
+Goal: Simplify installation and configuration of Jenkins for Java development. 
 
-## Jenkins 
-
-
-
-
-h4. TODO 
-
-# Merge content into [Jenkins Installation Guide - Docker] and move both to README.md 
-# Decide one webproxy per service or one separate container with webproxy for build infrastructure. 
-
-* Download plugin dependencies: https://gist.github.com/micw/e80d739c6099078ce0f3
-
-* To log in to take a look: docker exec -it <container-id> bash
-
-
-jenkins@d3d22c795c75:~$ cat /var/jenkins_home/hudson.tasks.Maven.xml
-<?xml version='1.0' encoding='UTF-8'?>
-<hudson.tasks.Maven_-DescriptorImpl>
-  <installations>
-    <hudson.tasks.Maven_-MavenInstallation>
-      <name>maven</name>
-      <home>/usr/share/maven</home>
-      <properties/>
-    </hudson.tasks.Maven_-MavenInstallation>
-  </installations>
-
-
-h4. Decisions 
+## Decisions 
 
 * Public git repo here: https://github.com/Cantara/maven-infrastructure 
-
+* Dockerhub image built from source:  cantara/jenkins
 * Decided to use Data Volume Container 
 * Copied from https://github.com/jenkinsci/docker, instead of using _FROM jenkins_ because the published image used openjdk7. 
 * Install Maven using apt and update Jenkins config to reference it, _hudson.tasks.Maven.xml_. 
@@ -39,25 +13,39 @@ h4. Decisions
 * Install plugins usually used in Maven/Java projects. 
 
 
+## TODO 
 
-h4. Jenkins with a Data Volume Container
+# Switch from OpenJDK to Zulu JDK 
+# Use latest Maven. Debian package currently used is version 3.0.5. 
+# Use script to download plugin dependencies: https://gist.github.com/micw/e80d739c6099078ce0f3 ? 
+
+## Install and use 
+
+# *Use jenkins to setup security and users)*
+## https://wiki.jenkins-ci.org/display/JENKINS/Standard+Security+Setup
+# *Create SSH keys*
+# Add SSH keys, http://localhost:8080/credentials/
+# Add settings.xml, http://localhost:8080/configfiles/
+## Remember to reference the settings.xml file in the build configuration for the Maven project. 
+
+
+## Build and run for development
 
 {code}
 sudo mkdir /data
-sudo docker build -t sherriff/jenkins .
-sudo docker create -v /data/jenkins_home --name jenkins-data sherriff/jenkins
-sudo docker run -d -p 8080:8080 --volumes-from jenkins-data --name jenkins20150512 sherriff/jenkins
+sudo docker create -v /data/jenkins_home --name jenkins-data cantara/jenkins
+sudo docker run -d -p 80:8080 --volumes-from jenkins-data --name jenkins20150512 cantara/jenkins
 {code}
 
+* To stop and remove all containers: docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) 
 
-https://wiki.jenkins-ci.org/display/JENKINS/Standard+Security+Setup
+* To log in to take a look: docker exec -it <container-id> bash
 
+## Plugins 
 
-h6. Plugins 
+Jenkins Core: 1.568 
 
-Core: 1.568 
-
-A recent Git runtime is required (1.7.9 minimum, 1.8.x recommended)
+See [plugins.txt|https://raw.githubusercontent.com/Cantara/maven-infrastructure/master/jenkins/plugins.txt] for the updated plugin list with versions.
 
 * https://wiki.jenkins-ci.org/display/JENKINS/SCM+API+Plugin
 * https://wiki.jenkins-ci.org/display/JENKINS/Git+Client+Plugin
@@ -66,12 +54,12 @@ A recent Git runtime is required (1.7.9 minimum, 1.8.x recommended)
 * https://wiki.jenkins-ci.org/display/JENKINS/Maven+Project+Plugin
 * https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin
 * https://wiki.jenkins-ci.org/display/JENKINS/Config+File+Provider+Plugin#ConfigFileProviderPlugin-MavenServerCredentials%28since2.7%29
+* https://wiki.jenkins-ci.org/display/JENKINS/Build+Monitor+Plugin
+* https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin
+* https://wiki.jenkins-ci.org/display/JENKINS/Static+Code+Analysis+Plug-ins
+* https://wiki.jenkins-ci.org/display/JENKINS/OWASP+Dependency-Check+Plugin
 
-[plugins.txt|https://raw.githubusercontent.com/Cantara/maven-infrastructure/master/jenkins/plugins.txt] 
-
-
-
-h4. Read more 
+## Read more 
 
 * http://www.catosplace.net/blog/2015/02/11/running-jenkins-in-docker-containers/
 * https://registry.hub.docker.com/_/jenkins/
@@ -82,14 +70,3 @@ h4. Read more
 * http://container-solutions.com/2014/12/understanding-volumes-docker/
 * http://container42.com/2014/11/18/data-only-container-madness/
 * https://github.com/paoloantinori/dockerfiles/blob/master/centos/jenkins/Dockerfile
-
-h4. Old 
-
-Set uid to 1100 in DockerFile. 
-{code}
-sudo mkdir /data
-sudo useradd -d /data/jenkins_home -u 1100 -m -s /bin/bash jenkins
-docker run -p 8080:8080 -v /data/jenkins_home/:/var/jenkins_home sherriff/jenkins
-{code}
-
-
