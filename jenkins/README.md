@@ -72,6 +72,7 @@ Maintain a list of plugins here to find plugin key, version and description of w
 * https://wiki.jenkins-ci.org/display/JENKINS/Slack+Plugin
 * https://wiki.jenkins-ci.org/display/JENKINS/Static+Code+Analysis+Plug-ins
 * https://wiki.jenkins-ci.org/display/JENKINS/OWASP+Dependency-Check+Plugin
+* https://wiki.jenkins-ci.org/display/JENKINS/Release+Plugin
 
 ### Read more 
 
