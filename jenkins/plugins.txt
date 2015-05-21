@@ -22,3 +22,6 @@ config-file-provider:2.8.1
 #junit:1.6
 analysis-core:1.71
 dependency-check-jenkins-plugin:1.2.11
+slack:1.8
+build-monitor-plugin:1.6+build.142 
+
