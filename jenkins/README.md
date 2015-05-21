@@ -2,6 +2,8 @@
 
 Goal: Simplify installation and configuration of Jenkins for Java development. 
 
+See https://github.com/jenkinsci/docker for tips, most of it is applicable to this fork as well. 
+
 * Data is stored in a Data Volume Container. Maven 3, OpenJDK 8 and a few of the most useful plugins are preinstalled. 
 * Jenkins Core: 1.568
 * List of plugins: https://raw.githubusercontent.com/Cantara/maven-infrastructure/master/jenkins/plugins.txt
