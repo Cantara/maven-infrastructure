@@ -2,31 +2,27 @@
 
 Goal: Simplify installation and configuration of Jenkins for Java development. 
 
-## Decisions 
+Data is stored in a Data Volume Container. Maven 3, OpenJDK 8 and a few of the most useful plugins are preinstalled. 
 
-* Public git repo here: https://github.com/Cantara/maven-infrastructure 
-* Dockerhub image built from source:  cantara/jenkins
-* Decided to use Data Volume Container 
-* Copied from https://github.com/jenkinsci/docker, instead of using _FROM jenkins_ because the published image used openjdk7. 
-* Install Maven using apt and update Jenkins config to reference it, _hudson.tasks.Maven.xml_. 
-* Update Jenkins config to reference JDK installation, _config.xml_. 
-* Install plugins usually used in Maven/Java projects. 
+Jenkins Core: 1.568
+
+See [plugins.txt|https://raw.githubusercontent.com/Cantara/maven-infrastructure/master/jenkins/plugins.txt] for the updated plugin list with versions.
 
 
 ## TODO 
 
-# Switch from OpenJDK to Zulu JDK 
-# Use latest Maven. Debian package currently used is version 3.0.5. 
-# Use script to download plugin dependencies: https://gist.github.com/micw/e80d739c6099078ce0f3 ? 
+1. Switch from OpenJDK to Zulu JDK 
+2. Use latest Maven. Debian package currently used is version 3.0.5. 
+3. Use script to download plugin dependencies: https://gist.github.com/micw/e80d739c6099078ce0f3 ? 
 
 ## Install and use 
 
-# *Use jenkins to setup security and users)*
-## https://wiki.jenkins-ci.org/display/JENKINS/Standard+Security+Setup
-# *Create SSH keys*
-# Add SSH keys, http://localhost:8080/credentials/
-# Add settings.xml, http://localhost:8080/configfiles/
-## Remember to reference the settings.xml file in the build configuration for the Maven project. 
+* *Use jenkins to setup security and users)*
+** https://wiki.jenkins-ci.org/display/JENKINS/Standard+Security+Setup
+* *Create SSH keys*
+** Add SSH keys, http://localhost:8080/credentials/
+* Add settings.xml, http://localhost:8080/configfiles/
+** Remember to reference the settings.xml file in the build configuration for the Maven project. 
 
 
 ## Build and run for development
@@ -41,11 +37,18 @@ sudo docker run -d -p 80:8080 --volumes-from jenkins-data --name jenkins20150512
 
 * To log in to take a look: docker exec -it <container-id> bash
 
+## Decisions 
+
+* Public git repo here: https://github.com/Cantara/maven-infrastructure 
+* Dockerhub image built from source:  cantara/jenkins
+* Decided to use Data Volume Container 
+* Copied from https://github.com/jenkinsci/docker, instead of using _FROM jenkins_ because the published image used openjdk7. 
+* Install Maven using apt and update Jenkins config to reference it, _hudson.tasks.Maven.xml_. 
+* Update Jenkins config to reference JDK installation, _config.xml_. 
+* Install plugins usually used in Maven/Java projects. 
+
+
 ## Plugins 
-
-Jenkins Core: 1.568 
-
-See [plugins.txt|https://raw.githubusercontent.com/Cantara/maven-infrastructure/master/jenkins/plugins.txt] for the updated plugin list with versions.
 
 * https://wiki.jenkins-ci.org/display/JENKINS/SCM+API+Plugin
 * https://wiki.jenkins-ci.org/display/JENKINS/Git+Client+Plugin
