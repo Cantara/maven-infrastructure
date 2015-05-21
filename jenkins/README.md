@@ -2,18 +2,10 @@
 
 Goal: Simplify installation and configuration of Jenkins for Java development. 
 
-Data is stored in a Data Volume Container. Maven 3, OpenJDK 8 and a few of the most useful plugins are preinstalled. 
-
-Jenkins Core: 1.568
-
-See [plugins.txt|https://raw.githubusercontent.com/Cantara/maven-infrastructure/master/jenkins/plugins.txt] for the updated plugin list with versions.
-
-
-## TODO 
-
-1. Switch from OpenJDK to Zulu JDK 
-2. Use latest Maven. Debian package currently used is version 3.0.5. 
-3. Use script to download plugin dependencies: https://gist.github.com/micw/e80d739c6099078ce0f3 ? 
+* Data is stored in a Data Volume Container. Maven 3, OpenJDK 8 and a few of the most useful plugins are preinstalled. 
+* Jenkins Core: 1.568
+* See [plugins.txt|https://raw.githubusercontent.com/Cantara/maven-infrastructure/master/jenkins/plugins.txt] for the updated plugin list with versions.
+* Webproxy (incl. TLS termination) is considered out of scope. Recommend using a separate docker container which links to this container. 
 
 ## Install and use 
 
@@ -25,13 +17,19 @@ See [plugins.txt|https://raw.githubusercontent.com/Cantara/maven-infrastructure/
 ** Remember to reference the settings.xml file in the build configuration for the Maven project. 
 
 
-## Build and run for development
+## TODO 
 
-{code}
+1. Switch from OpenJDK to Zulu JDK 
+2. Use latest Maven. Debian package currently used is version 3.0.5. 
+3. Use script to download plugin dependencies: https://gist.github.com/micw/e80d739c6099078ce0f3 ? 
+
+
+## Build and run for development
+```
 sudo mkdir /data
 sudo docker create -v /data/jenkins_home --name jenkins-data cantara/jenkins
 sudo docker run -d -p 80:8080 --volumes-from jenkins-data --name jenkins20150512 cantara/jenkins
-{code}
+```
 
 * To stop and remove all containers: docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) 
 
@@ -49,6 +47,8 @@ sudo docker run -d -p 80:8080 --volumes-from jenkins-data --name jenkins20150512
 
 
 ## Plugins 
+
+Maintain a list of plugins here to find plugin key, version and description of what it does. 
 
 * https://wiki.jenkins-ci.org/display/JENKINS/SCM+API+Plugin
 * https://wiki.jenkins-ci.org/display/JENKINS/Git+Client+Plugin
