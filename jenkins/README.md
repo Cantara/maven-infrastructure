@@ -4,7 +4,7 @@ Goal: Simplify installation and configuration of Jenkins for Java development.
 
 * Data is stored in a Data Volume Container. Maven 3, OpenJDK 8 and a few of the most useful plugins are preinstalled. 
 * Jenkins Core: 1.568
-* See [plugins.txt|https://raw.githubusercontent.com/Cantara/maven-infrastructure/master/jenkins/plugins.txt] for the updated plugin list with versions.
+* List of plugins: https://raw.githubusercontent.com/Cantara/maven-infrastructure/master/jenkins/plugins.txt
 * Webproxy (incl. TLS termination) is considered out of scope. Recommend using a separate docker container which links to this container. 
 
 ## Install and use 
