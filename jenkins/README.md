@@ -10,21 +10,24 @@ Goal: Simplify installation and configuration of Jenkins for Java development.
 ## Install and use 
 
 * *Use jenkins to setup security and users)*
-** https://wiki.jenkins-ci.org/display/JENKINS/Standard+Security+Setup
+  * https://wiki.jenkins-ci.org/display/JENKINS/Standard+Security+Setup
 * *Create SSH keys*
-** Add SSH keys, http://localhost:8080/credentials/
+  * Add SSH keys, http://localhost:8080/credentials/
 * Add settings.xml, http://localhost:8080/configfiles/
-** Remember to reference the settings.xml file in the build configuration for the Maven project. 
+  * Remember to reference the settings.xml file in the build configuration for the Maven project. 
 
 
-## TODO 
+## Development 
+
+### TODO 
 
 1. Switch from OpenJDK to Zulu JDK 
 2. Use latest Maven. Debian package currently used is version 3.0.5. 
 3. Use script to download plugin dependencies: https://gist.github.com/micw/e80d739c6099078ce0f3 ? 
 
 
-## Build and run for development
+### Build and run for development
+
 ```
 sudo mkdir /data
 sudo docker create -v /data/jenkins_home --name jenkins-data cantara/jenkins
@@ -35,7 +38,7 @@ sudo docker run -d -p 80:8080 --volumes-from jenkins-data --name jenkins20150512
 
 * To log in to take a look: docker exec -it <container-id> bash
 
-## Decisions 
+### Decisions 
 
 * Public git repo here: https://github.com/Cantara/maven-infrastructure 
 * Dockerhub image built from source:  cantara/jenkins
@@ -46,7 +49,7 @@ sudo docker run -d -p 80:8080 --volumes-from jenkins-data --name jenkins20150512
 * Install plugins usually used in Maven/Java projects. 
 
 
-## Plugins 
+### Plugins 
 
 Maintain a list of plugins here to find plugin key, version and description of what it does. 
 
@@ -62,7 +65,7 @@ Maintain a list of plugins here to find plugin key, version and description of w
 * https://wiki.jenkins-ci.org/display/JENKINS/Static+Code+Analysis+Plug-ins
 * https://wiki.jenkins-ci.org/display/JENKINS/OWASP+Dependency-Check+Plugin
 
-## Read more 
+### Read more 
 
 * http://www.catosplace.net/blog/2015/02/11/running-jenkins-in-docker-containers/
 * https://registry.hub.docker.com/_/jenkins/
