@@ -6,6 +6,7 @@ Goal: Simplify installation and configuration of Jenkins for Java development.
 * Jenkins Core: 1.568
 * List of plugins: https://raw.githubusercontent.com/Cantara/maven-infrastructure/master/jenkins/plugins.txt
 * Webproxy (incl. TLS termination) is considered out of scope. Recommend using a separate docker container which links to this container. 
+  * https://docs.docker.com/userguide/dockerlinks/ 
 
 ## Install and use 
 
@@ -15,6 +16,11 @@ Goal: Simplify installation and configuration of Jenkins for Java development.
   * Add SSH keys, http://localhost:8080/credentials/
 * Add settings.xml, http://localhost:8080/configfiles/
   * Remember to reference the settings.xml file in the build configuration for the Maven project. 
+
+## Backup 
+
+See https://docs.docker.com/userguide/dockervolumes/#backup-restore-or-migrate-data-volumes
+
 
 
 ## Development 
