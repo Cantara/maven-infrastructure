@@ -20,3 +20,5 @@ config-file-provider:2.8.1
 #translation:1.12
 #ldap:1.11
 #junit:1.6
+analysis-core:1.71
+dependency-check-jenkins-plugin:1.2.11
