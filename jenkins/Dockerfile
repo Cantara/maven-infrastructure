@@ -2,11 +2,26 @@
 ## https://github.com/jenkinsci/docker
 ## https://github.com/docker-library/java/blob/b4a3c296023e590e410f645ab83d3c11a30cf535/openjdk-8-jdk/Dockerfile
 ## https://github.com/zulu-openjdk/zulu-openjdk/blob/master/debian/8u45-8.7.0.5/Dockerfile
+## https://github.com/docker-library/buildpack-deps/blob/a0a59c61102e8b079d568db69368fb89421f75f2/sid/scm/Dockerfile 
+## https://github.com/docker-library/buildpack-deps/blob/a0a59c61102e8b079d568db69368fb89421f75f2/sid/curl/Dockerfile
 
-FROM buildpack-deps:sid-scm
-#MAINTAINER erik-dev@fjas.no
+FROM debian:sid
 
-RUN apt-get update && apt-get install -y wget unzip zip && rm -rf /var/lib/apt/lists/*
+#FROM buildpack-deps:sid-scm
+MAINTAINER erik-dev@fjas.no
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+		ca-certificates \
+                curl \
+                wget \
+		bzr \
+		git \
+		mercurial \
+		openssh-client \
+		subversion \
+	&& rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y unzip zip && rm -rf /var/lib/apt/lists/*
 
 RUN echo "alias ll='ls -l --color=auto'" >> /etc/bash.bashrc
 RUN echo "alias la='ls -la --color=auto'" >> /etc/bash.bashrc
