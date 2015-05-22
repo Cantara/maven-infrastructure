@@ -12,7 +12,7 @@ See https://github.com/jenkinsci/docker for tips, most of it is applicable to th
 
 ## Install and use 
 
-* Install data volume container and jenkins
+###  Install data volume container and jenkins
 ```
 sudo aptitude install docker.io or see https://docs.docker.com/installation/ubuntulinux/
 docker pull cantara/jenkins
@@ -21,13 +21,14 @@ sudo docker create -v /data/jenkins_home --name jenkins-data cantara/jenkins
 sudo docker run -d -p 80:8080 --volumes-from jenkins-data --name jenkins20150512 cantara/jenkins
 ```
 
-2. Use jenkins to setup security and users
+### Initial Jenkins config, point your browser to http://localhost:80/
+1. Use jenkins to setup security and users
   * https://wiki.jenkins-ci.org/display/JENKINS/Standard+Security+Setup
-3. Update plugins, http://localhost:8080/pluginManager/
-4. Set up CI user with access to git/github repositories 
+2. Update plugins, http://localhost:8080/pluginManager/
+3. Set up CI user with access to git/github repositories 
   * Create SSH keys: https://developer.github.com/guides/managing-deploy-keys/#machine-users
   * Add SSH private key to Jenkins, http://localhost:8080/credentials/
-5. Setup settings.xml to give Jenkins access to non-public Maven repos
+4. Setup settings.xml to give Jenkins access to non-public Maven repos
   * Add settings.xml, http://localhost:8080/configfiles/
   * Remember to reference the settings.xml file in the build configuration for the Maven project. 
 
