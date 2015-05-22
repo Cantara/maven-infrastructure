@@ -13,7 +13,7 @@ See https://github.com/jenkinsci/docker for tips, most of it is applicable to th
 ## Install and use 
 
 1. Install data volume container and jenkins
-  ```
+  * ```
   sudo aptitude install docker.io or see https://docs.docker.com/installation/ubuntulinux/
   docker pull cantara/jenkins
   sudo mkdir /data
