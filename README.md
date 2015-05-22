@@ -13,3 +13,7 @@ https://github.com/Cantara/maven-infrastructure/tree/master/jenkins
 ## Webproxy
 
 
+## Zulu
+A stripped down Zulu base-image for generic OpenJDK8 servers based upon the official Azul Docker Image
+https://github.com/Cantara/maven-infrastructure/tree/master/zulu
+
