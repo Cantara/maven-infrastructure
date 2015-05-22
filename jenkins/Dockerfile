@@ -1,8 +1,29 @@
 # Copied from https://github.com/jenkinsci/docker
 #TODO use zulu jdk8 
-FROM java:8u45-jdk
+#FROM java:8u45-jdk
 
-RUN apt-get update && apt-get install -y wget git curl zip maven && rm -rf /var/lib/apt/lists/*
+FROM buildpack-deps:sid-scm
+
+RUN apt-get update && apt-get install -y wget unzip zip maven && rm -rf /var/lib/apt/lists/*
+
+ENV LANG C.UTF-8
+
+# see https://bugs.debian.org/775775
+# and https://github.com/docker-library/java/issues/19#issuecomment-70546872
+ENV CA_CERTIFICATES_JAVA_VERSION 20140324
+
+## OpenJDK 
+#RUN apt-get update && apt-get install -y openjdk-8-jdk="$JAVA_DEBIAN_VERSION" ca-certificates-java="$CA_CERTIFICATES_JAVA_VERSION" && rm -rf /var/lib/apt/lists/*
+
+# Pull Zulu OpenJDK binaries from official repository:
+# Remember to update config.xml when changing jdk version
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
+RUN echo "deb http://repos.azulsystems.com/debian stable  main" >> /etc/apt/sources.list.d/zulu.list
+RUN apt-get -qq update && apt-get -y install zulu-8=8.7.0.5 ca-certificates-java="$CA_CERTIFICATES_JAVA_VERSION" && rm -rf /var/lib/apt/lists/*
+
+
+# see CA_CERTIFICATES_JAVA_VERSION notes above
+RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
 ENV JENKINS_HOME /var/jenkins_home
 
@@ -23,8 +44,9 @@ RUN mkdir -p /usr/share/jenkins/ref/init.groovy.d
 
 COPY init.groovy /usr/share/jenkins/ref/init.groovy.d/tcp-slave-agent-port.groovy
 
-ENV JENKINS_VERSION 1.596.2
-ENV JENKINS_SHA 96ee85602a41d68c164fb54d4796be5d1d9cc5d0
+ENV JENKINS_VERSION 1.596.3
+#ENV JENKINS_SHA 96ee85602a41d68c164fb54d4796be5d1d9cc5d0
+ENV JENKINS_SHA bbfe03f35aad4e76ab744543587a04de0c7fe766
 
 # could use ADD but this one does not check Last-Modified header 
 # see https://github.com/docker/docker/issues/8331

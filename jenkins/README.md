@@ -4,19 +4,20 @@ Goal: Simplify installation and configuration of Jenkins for Java development.
 
 See https://github.com/jenkinsci/docker for tips, most of it is applicable to this fork as well. 
 
-* Data is stored in a Data Volume Container. Maven 3, OpenJDK 8 and a few of the most useful plugins are preinstalled. 
-* Jenkins Core: 1.568
+* Data is stored in a Data Volume Container. Maven 3, Zulu JDK 8 and a few of the most useful plugins are preinstalled. 
+* Jenkins Core: 1.596.3 (latest LTS), see http://jenkins-ci.org/changelog#stable 
 * List of plugins: https://raw.githubusercontent.com/Cantara/maven-infrastructure/master/jenkins/plugins.txt
 * Webproxy (incl. TLS termination) is considered out of scope. Recommend using a separate docker container which links to this container. 
   * https://docs.docker.com/userguide/dockerlinks/ 
 
 ## Install and use 
 
-* *Use jenkins to setup security and users)*
+
+1. *Use jenkins to setup security and users)*
   * https://wiki.jenkins-ci.org/display/JENKINS/Standard+Security+Setup
-* *Create SSH keys*
+2. *Create SSH keys*
   * Add SSH keys, http://localhost:8080/credentials/
-* Add settings.xml, http://localhost:8080/configfiles/
+3. Add settings.xml, http://localhost:8080/configfiles/
   * Remember to reference the settings.xml file in the build configuration for the Maven project. 
 
 ## Backup 
@@ -29,9 +30,8 @@ See https://docs.docker.com/userguide/dockervolumes/#backup-restore-or-migrate-d
 
 ### TODO 
 
-1. Switch from OpenJDK to Zulu JDK 
-2. Use latest Maven. Debian package currently used is version 3.0.5. 
-3. Use script to download plugin dependencies: https://gist.github.com/micw/e80d739c6099078ce0f3 ? 
+1. Use latest Maven. Debian package currently used is version 3.0.5. 
+2. Use script to download plugin dependencies: https://gist.github.com/micw/e80d739c6099078ce0f3 ? 
 
 
 ### Build and run for development
@@ -52,6 +52,7 @@ sudo docker run -d -p 80:8080 --volumes-from jenkins-data --name jenkins20150512
 * Dockerhub image built from source:  cantara/jenkins
 * Decided to use Data Volume Container 
 * Copied from https://github.com/jenkinsci/docker, instead of using _FROM jenkins_ because the published image used openjdk7. 
+* Copied from https://github.com/docker-library/java/blob/b4a3c296023e590e410f645ab83d3c11a30cf535/openjdk-8-jdk/Dockerfile and switch to Zulu from OpenJDK
 * Install Maven using apt and update Jenkins config to reference it, _hudson.tasks.Maven.xml_. 
 * Update Jenkins config to reference JDK installation, _config.xml_. 
 * Install plugins usually used in Maven/Java projects. 

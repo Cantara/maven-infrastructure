@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <hudson>
   <disabledAdministrativeMonitors/>
-  <version>1.596.2</version>
+  <version>1.596.3</version>
   <numExecutors>2</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
@@ -13,8 +13,8 @@
   <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
   <jdks>
     <jdk>
-      <name>openjdk8</name>
-      <home>/usr/lib/jvm/java-8-openjdk-amd64</home>
+      <name>zulu-8-amd64</name>
+      <home>/usr/lib/jvm/zulu-8-amd64/</home>
       <properties/>
     </jdk>
   </jdks>
