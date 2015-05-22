@@ -20,7 +20,6 @@ sudo mkdir /data
 sudo docker create -v /data/jenkins_home --name jenkins-data cantara/jenkins
 sudo docker run -d -p 80:8080 --volumes-from jenkins-data --name jenkins20150512 cantara/jenkins
 ```
-
 2. Use jenkins to setup security and users
   * https://wiki.jenkins-ci.org/display/JENKINS/Standard+Security+Setup
 3. Update plugins, http://localhost:8080/pluginManager/
