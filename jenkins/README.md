@@ -12,13 +12,15 @@ See https://github.com/jenkinsci/docker for tips, most of it is applicable to th
 
 ## Install and use 
 
-1. *Use jenkins to setup security and users)*
+1. Use jenkins to setup security and users
   * https://wiki.jenkins-ci.org/display/JENKINS/Standard+Security+Setup
-2. *Create SSH keys*
-  * Add SSH keys, http://localhost:8080/credentials/
-3. Add settings.xml, http://localhost:8080/configfiles/
+2. Update plugins, http://localhost:8080/pluginManager/
+3. Set up CI user with access ti git/github repositories 
+  * Create SSH keys: https://developer.github.com/guides/managing-deploy-keys/#machine-users
+  * Add SSH private key to Jenkins, http://localhost:8080/credentials/
+4. Setup settings.xml to give Jenkins access to non-public Maven repos
+  * Add settings.xml, http://localhost:8080/configfiles/
   * Remember to reference the settings.xml file in the build configuration for the Maven project. 
-4. Update plugins
 
 ## Backup 
 
@@ -30,7 +32,7 @@ See https://docs.docker.com/userguide/dockervolumes/#backup-restore-or-migrate-d
 
 ### TODO 
 
-1. Use script to download plugin dependencies: https://gist.github.com/micw/e80d739c6099078ce0f3 ? 
+1. Transitive plugin dependencies are not installed automatically and plugins are not updated to latest version. Perhaps this script https://gist.github.com/micw/e80d739c6099078ce0f3 can fix one or both problems? 
 
 
 ### Build and run for development
