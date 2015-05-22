@@ -15,7 +15,7 @@ See https://github.com/jenkinsci/docker for tips, most of it is applicable to th
 1. Use jenkins to setup security and users
   * https://wiki.jenkins-ci.org/display/JENKINS/Standard+Security+Setup
 2. Update plugins, http://localhost:8080/pluginManager/
-3. Set up CI user with access ti git/github repositories 
+3. Set up CI user with access to git/github repositories 
   * Create SSH keys: https://developer.github.com/guides/managing-deploy-keys/#machine-users
   * Add SSH private key to Jenkins, http://localhost:8080/credentials/
 4. Setup settings.xml to give Jenkins access to non-public Maven repos
