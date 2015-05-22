@@ -1,13 +1,20 @@
-# Copied from https://github.com/jenkinsci/docker
-#TODO use zulu jdk8 
-#FROM java:8u45-jdk
+# Docker file inspired by 
+## https://github.com/jenkinsci/docker
+## https://github.com/docker-library/java/blob/b4a3c296023e590e410f645ab83d3c11a30cf535/openjdk-8-jdk/Dockerfile
+## https://github.com/zulu-openjdk/zulu-openjdk/blob/master/debian/8u45-8.7.0.5/Dockerfile
 
 FROM buildpack-deps:sid-scm
+#MAINTAINER erik-dev@fjas.no
 
-RUN apt-get update && apt-get install -y wget unzip zip maven && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y wget unzip zip && rm -rf /var/lib/apt/lists/*
+
+RUN echo "alias ll='ls -l --color=auto'" >> /etc/bash.bashrc
+RUN echo "alias la='ls -la --color=auto'" >> /etc/bash.bashrc
 
 ENV LANG C.UTF-8
 
+
+### Install JDK 
 # see https://bugs.debian.org/775775
 # and https://github.com/docker-library/java/issues/19#issuecomment-70546872
 ENV CA_CERTIFICATES_JAVA_VERSION 20140324
@@ -25,6 +32,19 @@ RUN apt-get -qq update && apt-get -y install zulu-8=8.7.0.5 ca-certificates-java
 # see CA_CERTIFICATES_JAVA_VERSION notes above
 RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
 
+### Install maven
+ENV MAVEN_VERSION 3.3.3
+
+RUN curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share \
+  && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
+  && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
+
+ENV MAVEN_HOME /usr/share/maven
+
+#CMD ["mvn"]
+
+
+### Install Jenkins 
 ENV JENKINS_HOME /var/jenkins_home
 
 # Jenkins is ran with user `jenkins`, uid = 1000
@@ -40,8 +60,6 @@ VOLUME /var/jenkins_home
 # to set on a fresh new installation. Use it to bundle additional plugins 
 # or config file with your custom jenkins Docker image.
 RUN mkdir -p /usr/share/jenkins/ref/init.groovy.d
-
-
 COPY init.groovy /usr/share/jenkins/ref/init.groovy.d/tcp-slave-agent-port.groovy
 
 ENV JENKINS_VERSION 1.596.3
@@ -74,22 +92,13 @@ ENTRYPOINT ["/usr/local/bin/jenkins.sh"]
 COPY plugins.sh /usr/local/bin/plugins.sh
 
 
-#FROM jenkins
-USER root
-
-RUN echo "alias ll='ls -l --color=auto'" >> /etc/bash.bashrc
-RUN echo "alias la='ls -la --color=auto'" >> /etc/bash.bashrc
-
-#RUN apt-get update && apt-get install -y maven2 && rm -rf /var/lib/apt/lists/*
-
-# https://raw.githubusercontent.com/paoloantinori/dockerfiles/master/centos/jenkins/Dockerfile
 # preconfigure maven location
-### not working properly 
+COPY hudson.tasks.Maven.xml /usr/share/jenkins/ref/hudson.tasks.Maven.xml
+## not working properly 
+# https://raw.githubusercontent.com/paoloantinori/dockerfiles/master/centos/jenkins/Dockerfile
 #RUN printf "<?xml version='1.0' encoding='UTF-8'?> <hudson.tasks.Maven_-DescriptorImpl> <installations> <hudson.tasks.Maven_-MavenInstallation> <name>maven</name> <home>/usr/share/maven2</home> <properties/> </hudson.tasks.Maven_-MavenInstallation> </installations> </hudson.tasks.Maven_-DescriptorImpl>" >>  $JENKINS_HOME/hudson.tasks.Maven.xml ; chown jenkins:jenkins $JENKINS_HOME/hudson.tasks.Maven.xml 
 
-USER jenkins 
-
-COPY hudson.tasks.Maven.xml /usr/share/jenkins/ref/hudson.tasks.Maven.xml
+#Ensure JDK path is set
 COPY config.xml /usr/share/jenkins/ref/config.xml
 
 COPY plugins.txt /usr/share/jenkins/plugins.txt

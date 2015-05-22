@@ -4,7 +4,7 @@ Goal: Simplify installation and configuration of Jenkins for Java development.
 
 See https://github.com/jenkinsci/docker for tips, most of it is applicable to this fork as well. 
 
-* Data is stored in a Data Volume Container. Maven 3, Zulu JDK 8 and a few of the most useful plugins are preinstalled. 
+* Data is stored in a Data Volume Container. Latest Maven 3, Zulu JDK 8 and a few of the most useful plugins are preinstalled. 
 * Jenkins Core: 1.596.3 (latest LTS), see http://jenkins-ci.org/changelog#stable 
 * List of plugins: https://raw.githubusercontent.com/Cantara/maven-infrastructure/master/jenkins/plugins.txt
 * Webproxy (incl. TLS termination) is considered out of scope. Recommend using a separate docker container which links to this container. 
@@ -12,13 +12,13 @@ See https://github.com/jenkinsci/docker for tips, most of it is applicable to th
 
 ## Install and use 
 
-
 1. *Use jenkins to setup security and users)*
   * https://wiki.jenkins-ci.org/display/JENKINS/Standard+Security+Setup
 2. *Create SSH keys*
   * Add SSH keys, http://localhost:8080/credentials/
 3. Add settings.xml, http://localhost:8080/configfiles/
   * Remember to reference the settings.xml file in the build configuration for the Maven project. 
+4. Update plugins
 
 ## Backup 
 
@@ -30,8 +30,7 @@ See https://docs.docker.com/userguide/dockervolumes/#backup-restore-or-migrate-d
 
 ### TODO 
 
-1. Use latest Maven. Debian package currently used is version 3.0.5. 
-2. Use script to download plugin dependencies: https://gist.github.com/micw/e80d739c6099078ce0f3 ? 
+1. Use script to download plugin dependencies: https://gist.github.com/micw/e80d739c6099078ce0f3 ? 
 
 
 ### Build and run for development
