@@ -54,9 +54,16 @@ sudo docker create -v /data/jenkins_home --name jenkins-data cantara/jenkins
 sudo docker run -d -p 80:8080 --volumes-from jenkins-data --name jenkins20150512 cantara/jenkins
 ```
 
-* To stop and remove all containers: docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) 
+* To stop and remove all containers: 
+```
+docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) 
+```
 
-* To log in to take a look: docker exec -it <container-id> bash
+* To log in to take a look: 
+```
+docker ps -a
+docker exec -it containerIdHere bash
+```
 
 ### Decisions 
 
