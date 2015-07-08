@@ -1,4 +1,4 @@
-# Jenkins 
+# Nexus Artifact Repository 
 
 Goal: Simplify installation and configuration of Nexus artifact repository. 
 
@@ -19,6 +19,12 @@ sudo mkdir /data
 sudo docker create -v /data/nexus_home --name nexus-data cantara/nexus
 sudo docker run -d -p 80:8081 --volumes-from nexus-data --name nexus20150708 cantara/nexus
 ```
+
+### Test that service is running 
+```
+curl http://localhost:80/service/local/status
+```
+
 
 ### Initial config, point your browser to http://localhost:80/
 1. Review Post-Install Checklist and configure as appropriate 
