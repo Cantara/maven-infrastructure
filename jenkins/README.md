@@ -1,4 +1,4 @@
-# Jenkins 
+# Jenkins continuous integration server
 
 Goal: Simplify installation and configuration of Jenkins for Java development. 
 
@@ -14,7 +14,7 @@ See https://github.com/jenkinsci/docker for tips, most of it is applicable to th
 
 ###  Install data volume container and jenkins
 ```
-sudo aptitude install docker.io or see https://docs.docker.com/installation/ubuntulinux/
+sudo wget -qO- https://get.docker.com/ | sh
 docker pull cantara/jenkins
 sudo mkdir /data
 sudo docker create -v /data/jenkins_home --name jenkins-data cantara/jenkins
