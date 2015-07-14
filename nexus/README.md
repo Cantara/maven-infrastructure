@@ -31,6 +31,21 @@ curl http://localhost:80/service/local/status
 2. Set users and roles 
   * https://wiki.cantara.no/display/sysadm/Artifact+repository+user+and+role+management
 
+
+### Copy data from host into data volume container 
+Nexus container must be running. 
+Copy files from /path/to/hostdir into /sonatype-work in container (which is a mounted data volume container). 
+Change owner to nexus. 
+Verify that everything looks like expected.
+
+```
+cd /path/to/hostdir
+tar -cv * | sudo docker exec -i nexus20150714 tar x -C /sonatype-work/
+sudo docker exec -i nexus20150714 chown nexus:nexus -R /sonatype-work
+sudo docker exec -it nexus20150714 bash
+```
+
+
 ## Backup 
 
 See https://docs.docker.com/userguide/dockervolumes/#backup-restore-or-migrate-data-volumes
