@@ -14,9 +14,8 @@ See https://registry.hub.docker.com/u/sonatype/nexus/ for tips, most of it is ap
 ###  Install data volume container and Nexus
 ```
 sudo wget -qO- https://get.docker.com/ | sh
-docker pull cantara/nexus
-sudo mkdir /data
-sudo docker create -v /data/nexus_home --name nexus-data cantara/nexus
+sudo docker pull cantara/nexus
+sudo docker create -v /sonatype-work --name nexus-data cantara/nexus
 sudo docker run -d -p 80:8081 --volumes-from nexus-data --name nexus20150708 cantara/nexus
 ```
 
@@ -42,19 +41,18 @@ See https://docs.docker.com/userguide/dockervolumes/#backup-restore-or-migrate-d
 ### Build and run for development
 
 ```
-sudo mkdir /data
-sudo docker build -t cantara/nexus
-sudo docker create -v /data/nexus_home --name nexus-data cantara/nexus
-sudo docker run -d -p 8081:8081 --name nexus20150708 --volumes-from nexus-data cantara/nexus
+sudo docker build -t cantara/nexus .
+sudo docker create -v /sonatype-work --name nexus-data cantara/nexus
+sudo docker run -d -p 8081:8081 --name nexus20150714 --volumes-from nexus-data cantara/nexus
 ```
 
 * To stop and remove all containers: 
 ```
-docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) 
+sudo docker stop $(sudo docker ps -a -q) && sudo docker rm $(sudo docker ps -a -q)
 ```
 
 * To log in to take a look: 
 ```
-docker ps -a
-docker exec -it containerIdHere bash
+sudo docker ps -a
+sudo docker exec -it containerIdHere bash
 ```
