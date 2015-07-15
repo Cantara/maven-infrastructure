@@ -11,9 +11,16 @@ See https://registry.hub.docker.com/u/sonatype/nexus/ for tips, most of it is ap
 
 ## Install and use 
 
+### Install or upgrade Docker 
+
+https://docs.docker.com/installation/ubuntulinux/
+
+```
+wget -qO- https://get.docker.com/ | sh
+```
+
 ###  Install data volume container and Nexus
 ```
-sudo wget -qO- https://get.docker.com/ | sh
 sudo docker pull cantara/nexus
 sudo docker create -v /sonatype-work --name nexus-data cantara/nexus
 sudo docker run -d -p 80:8081 --volumes-from nexus-data --name nexus20150708 cantara/nexus
@@ -34,16 +41,22 @@ curl http://localhost:80/service/local/status
 
 ### Copy data from host into data volume container 
 Nexus container must be running. 
-Copy files from /path/to/hostdir into /sonatype-work in container (which is a mounted data volume container). 
+Copy everything inside /path/to/hostdir/ into /sonatype-work/storage/ in container (which is a mounted data volume container). 
 Change owner to nexus. 
 Verify that everything looks like expected.
 
 ```
 cd /path/to/hostdir
-tar -cv * | sudo docker exec -i nexus20150714 tar x -C /sonatype-work/
-sudo docker exec -i nexus20150714 chown nexus:nexus -R /sonatype-work
-sudo docker exec -it nexus20150714 bash
+tar -cv * | sudo docker exec -i nexus20150714 tar x -C /sonatype-work/storage/
+sudo docker exec -i nexus20150714 chown nexus:nexus -R /sonatype-work/storage/
+sudo docker exec -it nexus20150714 ls -la /sonatype-work/storage
 ```
+
+* After copying repositories, add new hosted repositories matching the name of the copied folders. 
+  * https://books.sonatype.com/nexus-book/reference/config-sect-new-repo.html
+* Then add a scheduled task 'Rebuild Maven Metadata Files' and run it. It is not necessary to schedule it very often. Perhaps nightly or once a week.. 
+  * http://blog.sonatype.com/2009/09/nexus-scheduled-tasks/#.VaUTSZO1mAk
+
 
 
 ## Backup 
