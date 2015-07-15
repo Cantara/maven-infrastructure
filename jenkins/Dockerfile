@@ -5,10 +5,14 @@
 ## https://github.com/docker-library/buildpack-deps/blob/a0a59c61102e8b079d568db69368fb89421f75f2/sid/scm/Dockerfile 
 ## https://github.com/docker-library/buildpack-deps/blob/a0a59c61102e8b079d568db69368fb89421f75f2/sid/curl/Dockerfile
 
-FROM cantara:zulu
+FROM cantara/zulu
 
 MAINTAINER erik-dev@fjas.no
 
+# Jenkins is a strange product. It is often necessary to be able to log in to image and fix stuff. 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+               vim \
+        && rm -rf /var/lib/apt/lists/*
 
 ### Install maven
 ENV MAVEN_VERSION 3.3.3
