@@ -12,13 +12,20 @@ See https://github.com/jenkinsci/docker for tips, most of it is applicable to th
 
 ## Install and use 
 
+### Install or upgrade Docker 
+
+https://docs.docker.com/installation/ubuntulinux/
+
+```
+wget -qO- https://get.docker.com/ | sh
+```
+
+
 ###  Install data volume container and jenkins
 ```
-sudo wget -qO- https://get.docker.com/ | sh
 docker pull cantara/jenkins
-sudo mkdir /data
-sudo docker create -v /data/jenkins_home --name jenkins-data cantara/jenkins
-sudo docker run -d -p 80:8080 --volumes-from jenkins-data --name jenkins20150512 cantara/jenkins
+sudo docker create -v /var/jenkins_home --name jenkins-data cantara/jenkins
+sudo docker run -d -p 8080:8080 --volumes-from jenkins-data --name jenkins20150715 cantara/jenkins
 ```
 
 ### Initial Jenkins config, point your browser to http://localhost:80/
@@ -48,10 +55,9 @@ See https://docs.docker.com/userguide/dockervolumes/#backup-restore-or-migrate-d
 ### Build and run for development
 
 ```
-sudo mkdir /data
-sudo docker build -t cantara/jenkins 
-sudo docker create -v /data/jenkins_home --name jenkins-data cantara/jenkins
-sudo docker run -d -p 80:8080 --volumes-from jenkins-data --name jenkins20150512 cantara/jenkins
+sudo docker build -t cantara/jenkins .
+sudo docker create -v /var/jenkins_home --name jenkins-data cantara/jenkins
+sudo docker run -d -p 8080:8080 --volumes-from jenkins-data --name jenkins20150515 cantara/jenkins
 ```
 
 * To stop and remove all containers: 
