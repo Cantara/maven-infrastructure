@@ -35,7 +35,7 @@ curl http://localhost:80/service/local/status
 ### Initial config, point your browser to http://localhost:80/
 1. Review Post-Install Checklist and configure as appropriate 
   * http://books.sonatype.com/nexus-book/reference/install-sect-repoman-post-install.html
-2. Set users and roles 
+2. Set up users and roles 
   * https://wiki.cantara.no/display/sysadm/Artifact+repository+user+and+role+management
 
 

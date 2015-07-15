@@ -11,7 +11,7 @@ MAINTAINER erik-dev@fjas.no
 
 # Jenkins is a strange product. It is often necessary to be able to log in to image and fix stuff. 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-               vim \
+               vim git \
         && rm -rf /var/lib/apt/lists/*
 
 ### Install maven
