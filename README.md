@@ -12,6 +12,10 @@ https://github.com/Cantara/maven-infrastructure/tree/master/nexus
 ## Jenkins 
 https://github.com/Cantara/maven-infrastructure/tree/master/jenkins
 
+
+## Maven Parent POM
+https://github.com/Cantara/maven-infrastructure/tree/master/parentpom
+
 ## Webproxy 
 
 Not using docker yet. 
