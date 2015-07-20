@@ -3,15 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>no.cantara.emi</groupId>
     <artifactId>parent</artifactId>
-    <version>4</version>
+    <version>5</version>
     <packaging>pom</packaging>
     <name>Cantara Parent POM</name>
-
-    <scm>
-        <developerConnection>scm:git:git@github.com:Cantara/parentpom.git</developerConnection>
-        <connection>scm:git:https://github.com/Cantara/parentpom.git</connection>
-        <url>https://github.com/Cantara/parentpom</url>
-    </scm>
 
     <distributionManagement>
         <repository>
