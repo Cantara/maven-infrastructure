@@ -99,6 +99,8 @@ Maintain a list of plugins here to find plugin key, version and description of w
 * https://wiki.jenkins-ci.org/display/JENKINS/Static+Code+Analysis+Plug-ins
 * https://wiki.jenkins-ci.org/display/JENKINS/OWASP+Dependency-Check+Plugin
 * https://wiki.jenkins-ci.org/display/JENKINS/Release+Plugin
+* https://wiki.jenkins-ci.org/display/JENKINS/M2+Release+Plugin
+* https://wiki.jenkins-ci.org/display/JENKINS/SSH+Agent+Plugin
 
 ### Read more 
 

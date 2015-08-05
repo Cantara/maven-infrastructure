@@ -26,3 +26,5 @@ slack:1.8
 build-monitor-plugin:1.6+build.142 
 release:2.5.3
 embeddable-build-status:1.7
+m2release:0.14.0
+ssh-agent:1.7
