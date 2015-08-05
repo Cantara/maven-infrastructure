@@ -39,6 +39,12 @@ sudo docker run -d -p 8080:8080 --volumes-from jenkins-data --name jenkins201507
   * Add settings.xml, http://localhost:8080/configfiles/
   * Remember to reference the settings.xml file in the build configuration for the Maven project. 
 
+### Advanced configuration
+1. Set name and email used by scripts to commit to git:
+  * Open console to host: `sudo docker exec -it jenkins20150715 bash`
+  * `git config --global user.name "jenkins"`
+  * `git config --global user.email "example@example.com"
+
 ## Backup 
 
 See https://docs.docker.com/userguide/dockervolumes/#backup-restore-or-migrate-data-volumes
