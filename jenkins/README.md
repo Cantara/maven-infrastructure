@@ -28,7 +28,7 @@ sudo docker create -v /var/jenkins_home --name jenkins-data cantara/jenkins
 sudo docker run -d -p 8080:8080 --volumes-from jenkins-data --name jenkins20150715 cantara/jenkins
 ```
 
-### Initial Jenkins config, point your browser to http://localhost:80/
+### Initial Jenkins config, point your browser to http://localhost:8080/
 1. Use jenkins to setup security and users
   * https://wiki.jenkins-ci.org/display/JENKINS/Standard+Security+Setup
 2. Update plugins, http://localhost:8080/pluginManager/
