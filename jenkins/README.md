@@ -23,7 +23,7 @@ wget -qO- https://get.docker.com/ | sh
 
 ###  Install data volume container and jenkins
 ```
-docker pull cantara/jenkins
+sudo docker pull cantara/jenkins
 sudo docker create -v /var/jenkins_home --name jenkins-data cantara/jenkins
 sudo docker run -d -p 8080:8080 --volumes-from jenkins-data --name jenkins20150715 cantara/jenkins
 ```
