@@ -5,7 +5,7 @@ Goal: Simplify installation and configuration of Jenkins for Java development.
 See https://github.com/jenkinsci/docker for tips, most of it is applicable to this fork as well. 
 
 * Data is stored in a Data Volume Container. Latest Maven 3, Zulu JDK 8 and a few of the most useful plugins are preinstalled. 
-* Jenkins Core: 1.596.3 (latest LTS), see http://jenkins-ci.org/changelog#stable 
+* Jenkins Core: 1.609.3 (latest LTS), see http://jenkins-ci.org/changelog#stable 
 * List of plugins: https://raw.githubusercontent.com/Cantara/maven-infrastructure/master/jenkins/plugins.txt
 * Webproxy (incl. TLS termination) is considered out of scope. Recommend using a separate docker container which links to this container. 
   * https://docs.docker.com/userguide/dockerlinks/ 
