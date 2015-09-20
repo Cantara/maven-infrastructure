@@ -26,9 +26,12 @@ sudo aptitude install apache and use something like the following for webproxy c
 NameVirtualHost *:80
 <VirtualHost *:80>
         ServerName jenkins.company.no
+        ProxyRequests     Off
         ProxyPreserveHost ON
-        ProxyPass / http://localhost:8080/
+        ProxyPass / http://localhost:8080/ nocanon
         ProxyPassReverse / http://localhost:8080/
+        ProxyPassReverse  /  http://jenkins.company.no/i
+        AllowEncodedSlashes NoDecode
 </VirtualHost>
 <VirtualHost *:80>
         ServerName mvnrepo.company.no
