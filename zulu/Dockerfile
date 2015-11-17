@@ -9,7 +9,7 @@ FROM debian:sid
 MAINTAINER erik-dev@fjas.no
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-		ca-certificates curl wget zip unzip bzip2 vim \
+		ca-certificates curl wget zip unzip bzip2 vim less procps \
 	&& rm -rf /var/lib/apt/lists/*
 
 
