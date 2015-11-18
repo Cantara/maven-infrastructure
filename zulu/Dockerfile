@@ -5,11 +5,10 @@
 ## https://github.com/zulu-openjdk/zulu-openjdk/blob/master/debian/8u45-8.7.0.5/Dockerfile
 
 FROM debian:sid
-
 MAINTAINER erik-dev@fjas.no
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-		ca-certificates curl wget zip unzip bzip2 vim less procps \
+RUN apt-get update && apt-get install -y --no-install-recommends \ 
+	ca-certificates curl wget zip unzip bzip2 vim less procps \
 	&& rm -rf /var/lib/apt/lists/*
 
 
