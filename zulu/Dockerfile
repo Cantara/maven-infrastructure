@@ -3,17 +3,17 @@
 ## https://github.com/jenkinsci/docker
 ## https://github.com/docker-library/java/blob/b4a3c296023e590e410f645ab83d3c11a30cf535/openjdk-8-jdk/Dockerfile
 ## https://github.com/zulu-openjdk/zulu-openjdk/blob/master/debian/8u45-8.7.0.5/Dockerfile
+## https://github.com/zulu-openjdk/zulu-openjdk/blob/master/debian/8u66-8.11.0.1/Dockerfile
 
 FROM debian:sid
 MAINTAINER erik-dev@fjas.no
-
 
 RUN echo "export TERM=xtermc" >> ~/.bashrc
 # use norwegian debian mirror to speed up downloads
 #RUN echo "deb http://ftp.no.debian.org/debian/ sid main" > /etc/apt/sources.list
 
 RUN apt-get update && apt-get install -y --no-install-recommends \ 
-	ca-certificates curl wget zip unzip bzip2 vim less procps \
+	ca-certificates curl wget zip unzip bzip2 vim less \
 	&& rm -rf /var/lib/apt/lists/*
 
 
@@ -22,20 +22,16 @@ RUN echo "alias la='ls -la --color=auto'" >> /etc/bash.bashrc
 
 ENV LANG C.UTF-8
 
-
 ### Install JDK 
 # see https://bugs.debian.org/775775
 # and https://github.com/docker-library/java/issues/19#issuecomment-70546872
 ENV CA_CERTIFICATES_JAVA_VERSION 20140324
 
-## OpenJDK 
-#RUN apt-get update && apt-get install -y openjdk-8-jdk="$JAVA_DEBIAN_VERSION" ca-certificates-java="$CA_CERTIFICATES_JAVA_VERSION" && rm -rf /var/lib/apt/lists/*
-
 # Pull Zulu OpenJDK binaries from official repository:
-# Remember to update config.xml when changing jdk version
+# Remember to update config.xml when changing jdk version. This is probably jenkins or nexus
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
-RUN echo "deb http://repos.azulsystems.com/debian stable  main" >> /etc/apt/sources.list.d/zulu.list
-RUN apt-get -qq update && apt-get -y install zulu-8=8.7.0.5 ca-certificates-java="$CA_CERTIFICATES_JAVA_VERSION" && rm -rf /var/lib/apt/lists/*
+RUN echo "deb http://repos.azulsystems.com/debian stable main" >> /etc/apt/sources.list.d/zulu.list
+RUN apt-get -qq update && apt-get -y install zulu-8=8.11.0.1 ca-certificates-java="$CA_CERTIFICATES_JAVA_VERSION" && rm -rf /var/lib/apt/lists/*
 
 # see CA_CERTIFICATES_JAVA_VERSION notes above
 RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
