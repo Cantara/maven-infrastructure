@@ -7,6 +7,8 @@
 FROM debian:sid
 MAINTAINER erik-dev@fjas.no
 
+
+RUN echo "export TERM=xtermc" >> ~/.bashrc
 # use norwegian debian mirror to speed up downloads
 #RUN echo "deb http://ftp.no.debian.org/debian/ sid main" > /etc/apt/sources.list
 
