@@ -33,4 +33,3 @@ ENV ENV=/etc/shinit.sh
 COPY shinit.sh /etc/
 
 
-WORKDIR /tmp/java
