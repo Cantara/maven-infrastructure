@@ -1,6 +1,7 @@
-FROM delitescere/jvm-prep
+FROM cantara/jvmprep
 
-MAINTAINER josh@grahamis.com
+MAINTAINER totto@totto.org
+# Based upon work by josh@grahamis.com
 
 # If release changes, the checksum and URL need to be updated
 # See http://www.azulsystems.com/products/zulu/downloads#Linux
