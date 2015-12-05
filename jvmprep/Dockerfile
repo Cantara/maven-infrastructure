@@ -32,4 +32,8 @@ ENV ENV=/etc/shinit.sh
 
 COPY shinit.sh /etc/
 
+RUN \
+  chmod a=rx /etc/shinit.sh && \
+  mkdir java
 
+WORKDIR /tmp/java
