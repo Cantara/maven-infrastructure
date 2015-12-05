@@ -6,7 +6,7 @@ Zulu is built, tested, supported and made available by Azul Systems.
 
 www.azul.com/zulu
 
-This is a stripped down version of the Zulu Open JDK 9 early preview
+This is a stripped down docker image with the Zulu Open JDK 9 early preview
 
 '
 sudo docker run -it cantara/zulu9-minimal java -version
