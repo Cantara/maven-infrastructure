@@ -1,4 +1,4 @@
-M delitescere/jvm-prep
+FROM delitescere/jvm-prep
 
 MAINTAINER josh@grahamis.com
 
@@ -7,7 +7,7 @@ MAINTAINER josh@grahamis.com
 #
 # Replace duplicate files in JDK bin with links to JRE bin
 RUN \
-  checksum="7aed58c4f80f5d9163168e564ea88f97" && \
+  checksum="2f93b2f4c64782c3159004f749963c01" && \
   url="http://cdn.azulsystems.com/zulu/bin/zulu1.9.0_pre-9.0.0.1-x86lx64.zip" && \
   referer="http://www.azulsystems.com/zuludoc" && \
   etag=$(curl -sI --referer "${referer}" "${url}" | awk -F"\"|:" '/^ETag: / {print $3}') && \
