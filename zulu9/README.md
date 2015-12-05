@@ -11,3 +11,4 @@ This is a stripped down version of the Zulu Open JDK 9 early preview
 '
 sudo docker run -it cantara/zulu9-minimal java -version
 '
+
