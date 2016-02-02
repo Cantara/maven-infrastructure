@@ -6,11 +6,11 @@ Zulu is built, tested, supported and made available by Azul Systems.
 
 http://www.azul.com/zulu
 
-This is a stripped down docker image with the Zulu Open JDK 8 TCK iverified dirstribution using the Alpine Linux distribution so it is one of the smallest JDK8 Docker distributions in the world.
+This is a stripped down docker image with the Zulu Open JDK 8 TCK verified distribution using the Alpine Linux distribution so it is one of the smallest JDK8 Docker distributions in the world.
 
 
 ```
-sudo docker pull cantara/zulu9-minimal
-sudo docker run -it cantara/zulu9-minimal java -version
+sudo docker pull cantara/zulu8
+sudo docker run -it cantara/zulu8 java -version
 ```
 
