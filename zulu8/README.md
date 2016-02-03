@@ -10,7 +10,7 @@ This is a stripped down docker image with the Zulu Open JDK 8 TCK iverified dirs
 
 
 ```
-sudo docker pull cantara/zulu9-minimal
-sudo docker run -it cantara/zulu9-minimal java -version
+sudo docker pull cantara/zulu8
+sudo docker run -it cantara/zulu8 java -version
 ```
 
