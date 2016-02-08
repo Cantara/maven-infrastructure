@@ -16,6 +16,15 @@ https://github.com/Cantara/maven-infrastructure/tree/master/jenkins
 ## Maven Parent POM
 https://github.com/Cantara/maven-infrastructure/tree/master/parentpom
 
+## Some good Java Docker Baseimages
+
+alpine-openjdk-jdk8
+alpine-zulu-jdk8
+alpine-zulu-jdk9
+debian-sid-zulu-jdk8
+debian-sid-zulu-jdk9
+
+
 ## Webproxy 
 
 Not using docker yet. 
