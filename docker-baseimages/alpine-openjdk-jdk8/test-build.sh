@@ -1,5 +1,5 @@
 #!/bin/sh
 
-docker build -t cantara/openjdk8 .
-docker run --rm -it cantara/openjdk8 sh -c "java -version; cat /etc/os-release"
+docker build -t cantara/alpine-openjdk-jdk8 .
+docker run --rm -it cantara/alpine-openjdk-jdk8 sh -c "java -version; cat /etc/os-release"
 

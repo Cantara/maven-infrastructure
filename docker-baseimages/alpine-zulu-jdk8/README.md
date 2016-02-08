@@ -10,7 +10,7 @@ This is a stripped down docker image with the Zulu Open JDK 8 TCK verified distr
 
 
 ```
-sudo docker pull cantara/zulu8
-sudo docker run -it cantara/zulu8 java -version
+sudo docker pull cantara/alpine-zulu-jdk8
+sudo docker run -it cantara/alpine-zulu-jdk8 java -version
 ```
 

@@ -5,8 +5,8 @@ OpenJDK 8 using Alpine Linux. Image virtual size approx. 111.8 MB (as of 2nd Feb
 Image published at https://hub.docker.com/r/cantara/alpine-openjdk8/
 
 ```bash
-sudo docker pull cantara/alpine-openjdk8
-sudo docker run -it --rm cantara/alpine-openjdk8 java -version
+sudo docker pull cantara/alpine-openjdk-jdk8
+sudo docker run -it --rm cantara/alpine-openjdk-jdk8 java -version
 ```
 
 Build and test locally with `./test-build.sh`

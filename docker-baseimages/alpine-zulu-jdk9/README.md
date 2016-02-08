@@ -10,11 +10,11 @@ This is a stripped down docker image with the Zulu Open JDK 9 early preview usin
 
 
 ```
-sudo docker pull cantara/zulu9-minimal
-sudo docker run -it cantara/zulu9-minimal java -version
+sudo docker pull cantara/alpine-zulu-jdk8
+sudo docker run -it cantara/alpine-zulu-jdk8 java -version
 ```
  And have some fun
 
 ```
-sudo docker run -it cantara/zulu9-minimal jshell  ### Start the new REPL jshell (Project Kulla)
+sudo docker run -it cantara/alpine-zulu-jdk8 jshell  ### Start the new REPL jshell (Project Kulla)
 ```
