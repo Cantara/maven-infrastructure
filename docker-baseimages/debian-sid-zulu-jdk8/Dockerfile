@@ -33,7 +33,8 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
 RUN echo "deb http://repos.azulsystems.com/debian stable main" >> /etc/apt/sources.list.d/zulu.list
 # RUN apt-get -qq update && apt-get -y install zulu-8=8.11.0.1 ca-certificates-java="$CA_CERTIFICATES_JAVA_VERSION" && rm -rf /var/lib/apt/lists/*
 RUN apt-get -qq update 
-RUN apt-get -y install zulu-8=8.13.0.5 
+RUN apt-get -y install zulu-8
+#=8.13.0.5 
 #ca-certificates-java="$CA_CERTIFICATES_JAVA_VERSION" 
 RUN rm -rf /var/lib/apt/lists/*
 
