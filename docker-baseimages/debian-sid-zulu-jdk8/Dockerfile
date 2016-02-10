@@ -43,4 +43,4 @@ RUN apt-get -y install zulu-8
 RUN rm -rf /var/lib/apt/lists/*
 
 # see CA_CERTIFICATES_JAVA_VERSION notes above
-RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
+#RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
