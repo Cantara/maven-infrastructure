@@ -19,8 +19,8 @@ https://github.com/Cantara/maven-infrastructure/tree/master/parentpom
 ## Some good Java Docker Baseimages
 
 * alpine-openjdk-jdk8 
-** https://hub.docker.com/r/cantara/alpine-openjdk-jdk8/
-** https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/alpine-openjdk-jdk8
+⋅⋅* https://hub.docker.com/r/cantara/alpine-openjdk-jdk8/
+⋅⋅* https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/alpine-openjdk-jdk8
 * alpine-zulu-jdk8  
 ** https://hub.docker.com/r/cantara/alpine-zulu-jdk8/
 ** https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/alpine-zulu-jdk8
