@@ -1,20 +1,5 @@
 # Maven Infrastructure using Docker
 
-## Version Control 
-
-https://github.com/ or set up your own git server. 
-
-
-## Nexus 
-https://github.com/Cantara/maven-infrastructure/tree/master/nexus
-
-
-## Jenkins 
-https://github.com/Cantara/maven-infrastructure/tree/master/jenkins
-
-
-## Maven Parent POM
-https://github.com/Cantara/maven-infrastructure/tree/master/parentpom
 
 ## Some good Java Docker Baseimages
 
@@ -33,6 +18,22 @@ https://github.com/Cantara/maven-infrastructure/tree/master/parentpom
 * debian-sid-zulu-jdk9 
   * https://hub.docker.com/r/cantara/debian-sid-zulu-jdk9/
   * https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/debian-sid-zulu-jdk9
+
+
+## Maven Parent POM
+https://github.com/Cantara/maven-infrastructure/tree/master/parentpom
+
+## Version Control 
+
+https://github.com/ or set up your own git server. 
+
+
+## Nexus 
+https://github.com/Cantara/maven-infrastructure/tree/master/nexus
+
+
+## Jenkins 
+https://github.com/Cantara/maven-infrastructure/tree/master/jenkins
 
 
 ## Webproxy 
@@ -60,9 +61,6 @@ NameVirtualHost *:80
 </VirtualHost>
 ```
 
-## Zulu
-A stripped down Zulu base-image for generic OpenJDK8 servers based upon the official Azul Docker Image
-https://github.com/Cantara/maven-infrastructure/tree/master/zulu
 
 ## Aggregated log-server
 An initial setup for the greylog2 log-server is provided 
