@@ -1,7 +1,7 @@
 # Maven Infrastructure using Docker
 
 
-## The basics:  Some good Java Docker Baseimages
+## The basics:  Some good small Java Docker Baseimages
 
 * alpine-openjdk-jdk8 
   * https://hub.docker.com/r/cantara/alpine-openjdk-jdk8/
