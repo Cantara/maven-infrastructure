@@ -1,7 +1,7 @@
 # Maven Infrastructure using Docker
 
 
-## Some good Java Docker Baseimages
+## The basics:  Some good Java Docker Baseimages
 
 * alpine-openjdk-jdk8 
   * https://hub.docker.com/r/cantara/alpine-openjdk-jdk8/
@@ -20,20 +20,15 @@
   * https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/debian-sid-zulu-jdk9
 
 
-## Maven Parent POM
-https://github.com/Cantara/maven-infrastructure/tree/master/parentpom
-
-## Version Control 
-
-https://github.com/ or set up your own git server. 
-
 
 ## Nexus 
-https://github.com/Cantara/maven-infrastructure/tree/master/nexus
+* https://hub.docker.com/r/cantara/nexus/
+* https://github.com/Cantara/maven-infrastructure/tree/master/nexus
 
 
-## Jenkins 
-https://github.com/Cantara/maven-infrastructure/tree/master/jenkins
+## Jenkins
+* https://hub.docker.com/r/cantara/jenkins/ 
+* https://github.com/Cantara/maven-infrastructure/tree/master/jenkins
 
 
 ## Webproxy 
@@ -60,6 +55,13 @@ NameVirtualHost *:80
         ProxyPassReverse / http://localhost:8081/
 </VirtualHost>
 ```
+
+## Maven Parent POM
+https://github.com/Cantara/maven-infrastructure/tree/master/parentpom
+
+## Version Control
+
+https://github.com/ or set up your own git server.
 
 
 ## Aggregated log-server
