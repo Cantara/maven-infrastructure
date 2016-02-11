@@ -2,7 +2,7 @@
 # https://github.com/Cantara/maven-infrastructure/blob/master/jenkins/Dockerfile
 # https://registry.hub.docker.com/u/sonatype/nexus/dockerfile/
 
-FROM cantara/zulu
+FROM cantara/debian-sid-zulu-jdk8
 
 MAINTAINER erik-dev@fjas.no
 
