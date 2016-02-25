@@ -8,8 +8,8 @@ MAINTAINER totto@totto.org
 #
 # Replace duplicate files in JDK bin with links to JRE bin
 RUN \
-  checksum="22c013b-66b4f24-5289d92f60abe" && \
-  url="http://cdn.azul.com/zulu-pre/bin/zulu9.0.0.2-ea-jdk9.0.0-linux_x64.zip" && \
+  checksum="22c0167-64b4010-52c8a302a9919" && \
+  url="http://cdn.azul.com/zulu-pre/bin/zulu9.0.0.3-ea-jdk9.0.0-linux_x64.tar.gz" && \
   referer="http://www.azulsystems.com/zuludoc" && \
   etag=$(curl -sI --referer "${referer}" "${url}" | awk -F"\"|:" '/^ETag: / {print $3}') && \
   if [ "X${checksum}" == "X${etag}" ]; then \
@@ -18,8 +18,8 @@ RUN \
     echo "[FATAL] Java ZIP ETag ${etag} doesn't match checksum ${checksum}. Exiting." >&2 && \
     exit 1; \
   fi && \
-  unzip -q *.zip && \
-  rm *.zip && \
+  tar -xzf zulu*.gz && \
+  rm zulu*.gz && \
   mkdir -p $(dirname ${JAVA_HOME}) && \
   mv * ${JAVA_HOME} && \
   cd .. && \
