@@ -19,8 +19,7 @@ RUN mkdir -p /opt/sonatype/nexus \
   && rm -rf /tmp/nexus-${NEXUS_VERSION}
 
 
-RUN useradd -r -u 1001 -m -c "nexus role account" -d ${SONATYPE_WORK} -s /bin/false nexus
-
+RUN useradd -r -u 1001 -m -c "nexus role account" -s /bin/false nexus
 
 EXPOSE 8081
 WORKDIR /opt/sonatype/nexus
