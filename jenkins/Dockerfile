@@ -14,6 +14,25 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
                vim git openssh-client \
         && rm -rf /var/lib/apt/lists/*
 
+
+# Install StartCom certs
+ENV JAVA_HOME /usr/lib/jvm/zulu-8-amd64/
+RUN wget --quiet --continue http://www.startssl.com/certs/ca.crt \
+	&& keytool -import -trustcacerts -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit -noprompt -alias startcom.ca -file ca.crt \
+	&& rm ca.crt
+RUN wget --quiet --continue https://www.startssl.com/certs/sca.server1.crt \
+	&& keytool -import -trustcacerts -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit -noprompt -alias startcom.ca.sub.class1 -file sca.server1.crt \ 
+	&& rm sca.server1.crt
+RUN wget --quiet --continue https://www.startssl.com/certs/sca.server2.crt \ 
+	&& keytool -import -trustcacerts -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit -noprompt -alias startcom.ca.sub.class2 -file sca.server2.crt \
+	&& rm sca.server2.crt
+RUN wget --quiet --continue https://www.startssl.com/certs/sca.server3.crt \
+        && keytool -import -trustcacerts -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit -noprompt -alias startcom.ca.sub.class3 -file sca.server3.crt \
+        && rm sca.server3.crt
+RUN wget --quiet --continue https://www.startssl.com/certs/sca.server4.crt \
+        && keytool -import -trustcacerts -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit -noprompt -alias startcom.ca.sub.class4 -file sca.server4.crt \
+        && rm sca.server4.crt
+
 ### Install maven
 ENV MAVEN_VERSION 3.3.3
 
