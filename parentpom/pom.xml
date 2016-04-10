@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>no.cantara.emi</groupId>
     <artifactId>parent</artifactId>
-    <version>5</version>
+    <version>6</version>
     <packaging>pom</packaging>
     <name>Cantara Parent POM</name>
 
@@ -11,12 +11,12 @@
         <repository>
             <id>cantara</id>
             <name>Cantara Release Repository</name>
-            <url>http://mvnrepo.cantara.no/content/repositories/releases/</url>
+            <url>https://mvnrepo.cantara.no/content/repositories/releases/</url>
         </repository>
         <snapshotRepository>
             <id>cantara</id>
             <name>Cantara Snapshot Repository</name>
-            <url>http://mvnrepo.cantara.no/content/repositories/snapshots/</url>
+            <url>https://mvnrepo.cantara.no/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
