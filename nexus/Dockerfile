@@ -7,7 +7,7 @@ FROM cantara/debian-sid-zulu-jdk8
 MAINTAINER erik-dev@fjas.no
 
 ### Install Nexus 
-ENV SONATYPE_WORK /sonatype-work
+ENV SONATYPE_WORK /sonatype-work/nexus
 ENV NEXUS_VERSION 2.11.3-01
 
 
