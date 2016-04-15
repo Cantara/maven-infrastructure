@@ -11,6 +11,6 @@ This is a stripped down docker image with the Zulu Open JDK 8 on debian SID
 
 
 ```
-sudo docker pull cantara/zulu
-sudo docker run -it cantara/zulu java -version
+sudo docker pull cantara/debian-sid-zulu-jdk8
+sudo docker run -it cantara/debian-sid-zulu-jdk8 java -version
 ```
