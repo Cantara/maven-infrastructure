@@ -22,7 +22,7 @@ RUN \
     echo "[FATAL] Java ZIP ETag ${etag} doesn't match checksum ${checksum}. Exiting." >&2 && \
     exit 1; \
   fi && \
-  tar -xzf  -q *.gz && \
+  tar -xzf   *.gz && \
   rm *.gz && \
   mkdir -p $(dirname ${JAVA_HOME}) && \
   mv * ${JAVA_HOME} && \
