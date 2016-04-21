@@ -11,7 +11,12 @@ This is a stripped down docker image with the Zulu Open JDK 9 early preview usin
 
 
 ```
-sudo docker pull cantara/zulu9-minimal
-sudo docker run -it cantara/zulu9-minimal java -version
+sudo docker pull cantara/debian-sid-zulu-jdk9
+sudo docker run -it cantara/debian-sid-zulu-jdk9 -version
+```
+ And have some fun
+
+```
+sudo docker run -it cantara/debian-sid-zulu-jdk9 jshell  ### Start the new REPL jshell (Project Kulla)
 ```
 
