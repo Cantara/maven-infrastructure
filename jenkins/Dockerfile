@@ -5,7 +5,7 @@
 ## https://github.com/docker-library/buildpack-deps/blob/a0a59c61102e8b079d568db69368fb89421f75f2/sid/scm/Dockerfile 
 ## https://github.com/docker-library/buildpack-deps/blob/a0a59c61102e8b079d568db69368fb89421f75f2/sid/curl/Dockerfile
 
-FROM cantara/debian-sid-zulu-jdk8
+FROM cantara/debian-sid-zulu-jdk9
 
 MAINTAINER erik-dev@fjas.no
 
