@@ -3,15 +3,17 @@
 
 ## The basics:  Some good small Java Docker Baseimages
 
-* alpine-openjdk-jdk8 
+* alpine-zulu-jdk9 
+  * https://hub.docker.com/r/cantara/alpine-zulu-jdk9/
+  * https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/alpine-zulu-jdk9
+  * [![](https://images.microbadger.com/badges/image/cantara/alpine-zulu-jdk9.svg)](https://microbadger.com/images/cantara/alpine-zulu-jdk9 "Get your own image badge on microbadger.com")
+alpine-openjdk-jdk8 
   * https://hub.docker.com/r/cantara/alpine-openjdk-jdk8/
   * https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/alpine-openjdk-jdk8
 * alpine-zulu-jdk8  
   * https://hub.docker.com/r/cantara/alpine-zulu-jdk8/
   * https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/alpine-zulu-jdk8
-* alpine-zulu-jdk9 
-  * https://hub.docker.com/r/cantara/alpine-zulu-jdk9/
-  * https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/alpine-zulu-jdk9
+* 
 * debian-sid-zulu-jdk8 
   * https://hub.docker.com/r/cantara/debian-sid-zulu-jdk8/
   * https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/debian-sid-zulu-jdk8
