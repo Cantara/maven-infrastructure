@@ -24,12 +24,12 @@
 
 
 
-## Nexus 
+## Nexus [![](https://images.microbadger.com/badges/image/cantara/nexus.svg)](https://microbadger.com/images/cantara/nexus "Get your own image badge on microbadger.com") 
 * https://hub.docker.com/r/cantara/nexus/
 * https://github.com/Cantara/maven-infrastructure/tree/master/nexus
 
 
-## Jenkins
+## Jenkins [![](https://images.microbadger.com/badges/image/cantara/jenkins.svg)](https://microbadger.com/images/cantara/jenkins "Get your own image badge on microbadger.com") 
 * https://hub.docker.com/r/cantara/jenkins/ 
 * https://github.com/Cantara/maven-infrastructure/tree/master/jenkins
 
