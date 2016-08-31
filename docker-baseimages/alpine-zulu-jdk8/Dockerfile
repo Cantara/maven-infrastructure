@@ -2,7 +2,6 @@ FROM cantara/jvmprep
 
 MAINTAINER totto@totto.org
 # Based upon work by josh@grahamis.com
-
 # If release changes, the checksum and URL need to be updated
 # See http://www.azulsystems.com/products/zulu/downloads#Linux
 #
@@ -12,8 +11,8 @@ MAINTAINER totto@totto.org
 #
 # Replace duplicate files in JDK bin with links to JRE bin
 RUN \
-  checksum="22c0170-4ae681c-52a6a2eb3f980" && \
-  url="http://cdn.azul.com/zulu/bin/zulu8.13.0.5-jdk8.0.72-linux_x64.tar.gz" && \
+  checksum="22c0231-4a3e138-53816173f1780" && \
+  url="http://cdn.azul.com/zulu/bin/zulu8.17.0.3-jdk8.0.102-linux_x64.tar.gz" && \
   referer="http://www.azulsystems.com/zuludoc" && \
   etag=$(curl -sI --referer "${referer}" "${url}" | awk -F"\"|:" '/^ETag: / {print $3}') && \
   if [ "X${checksum}" == "X${etag}" ]; then \
