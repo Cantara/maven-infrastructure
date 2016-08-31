@@ -1,6 +1,7 @@
 # Maven Infrastructure using Docker
 
 
+
 ## The basics:  Some good small Java Docker Baseimages
 
 ### Java 9 JDK
