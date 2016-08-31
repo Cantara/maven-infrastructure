@@ -6,7 +6,7 @@
 * alpine-zulu-jdk9 [![](https://images.microbadger.com/badges/image/cantara/alpine-zulu-jdk9.svg)](https://microbadger.com/images/cantara/alpine-zulu-jdk9 "Get your own image badge on microbadger.com")
   * https://hub.docker.com/r/cantara/alpine-zulu-jdk9/
   * https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/alpine-zulu-jdk9
-* alpine-openjdk-jdk8 
+* alpine-openjdk-jdk8 [![](https://images.microbadger.com/badges/image/cantara/alpine-openjdk-jdk8.svg)](https://microbadger.com/images/cantara/alpine-openjdk-jdk8 "Get your own image badge on microbadger.com") 
   * https://hub.docker.com/r/cantara/alpine-openjdk-jdk8/
   * https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/alpine-openjdk-jdk8
 * alpine-zulu-jdk8 [![](https://images.microbadger.com/badges/image/cantara/alpine-zulu-jdk8.svg)](https://microbadger.com/images/cantara/alpine-zulu-jdk8 "Get your own image badge on microbadger.com")
