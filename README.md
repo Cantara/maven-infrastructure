@@ -10,6 +10,7 @@
 * debian-sid-zulu-jdk9 [![](https://images.microbadger.com/badges/image/cantara/debian-sid-zulu-jdk9.svg)](https://microbadger.com/images/cantara/debian-sid-zulu-jdk9 "Get your own image badge on microbadger.com")
   * https://hub.docker.com/r/cantara/debian-sid-zulu-jdk9/
   * https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/debian-sid-zulu-jdk9
+
 ### Java 8
 * alpine-openjdk-jdk8 [![](https://images.microbadger.com/badges/image/cantara/alpine-openjdk-jdk8.svg)](https://microbadger.com/images/cantara/alpine-openjdk-jdk8 "Get your own image badge on microbadger.com") 
   * https://hub.docker.com/r/cantara/alpine-openjdk-jdk8/
