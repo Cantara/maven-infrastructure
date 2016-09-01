@@ -1,4 +1,5 @@
-FROM gliderlabs/alpine:3.2
+FROM alpine:latest
+# gliderlabs/alpine:3.2
 
 MAINTAINER totto@totto.org
 
