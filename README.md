@@ -2,7 +2,7 @@
 
 A collection of tools and recepies to make your Maven world shine :)
 
-## The basics:  Some good small Java Docker Baseimages
+## The basics:  Some good small Java JDK Docker Baseimages
 
 ### Java 9 JDK
 * alpine-zulu-jdk9 [![](https://images.microbadger.com/badges/image/cantara/alpine-zulu-jdk9.svg)](https://microbadger.com/images/cantara/alpine-zulu-jdk9 "Get your own image badge on microbadger.com")
