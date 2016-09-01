@@ -13,12 +13,12 @@ A collection of tools and recepies to make your Maven world shine :)
   * https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/debian-sid-zulu-jdk9
 
 ### Java 8 JDK
-* alpine-openjdk-jdk8 [![](https://images.microbadger.com/badges/image/cantara/alpine-openjdk-jdk8.svg)](https://microbadger.com/images/cantara/alpine-openjdk-jdk8 "Get your own image badge on microbadger.com") 
-  * https://hub.docker.com/r/cantara/alpine-openjdk-jdk8/
-  * https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/alpine-openjdk-jdk8
 * alpine-zulu-jdk8 [![](https://images.microbadger.com/badges/image/cantara/alpine-zulu-jdk8.svg)](https://microbadger.com/images/cantara/alpine-zulu-jdk8 "Get your own image badge on microbadger.com")
   * https://hub.docker.com/r/cantara/alpine-zulu-jdk8/
   * https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/alpine-zulu-jdk8
+* alpine-openjdk-jdk8 [![](https://images.microbadger.com/badges/image/cantara/alpine-openjdk-jdk8.svg)](https://microbadger.com/images/cantara/alpine-openjdk-jdk8 "Get your own image badge on microbadger.com") 
+  * https://hub.docker.com/r/cantara/alpine-openjdk-jdk8/
+  * https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/alpine-openjdk-jdk8
 * debian-sid-zulu-jdk8 [![](https://images.microbadger.com/badges/image/cantara/debian-sid-zulu-jdk8.svg)](https://microbadger.com/images/cantara/debian-sid-zulu-jdk8 "Get your own image badge on microbadger.com")
   * https://hub.docker.com/r/cantara/debian-sid-zulu-jdk8/
   * https://github.com/Cantara/maven-infrastructure/tree/master/docker-baseimages/debian-sid-zulu-jdk8
