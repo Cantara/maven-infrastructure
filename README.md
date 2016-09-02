@@ -34,6 +34,9 @@ A collection of tools and recepies to make your Maven world shine :)
 * https://hub.docker.com/r/cantara/jenkins/ 
 * https://github.com/Cantara/maven-infrastructure/tree/master/jenkins
 
+## SonarCube [![](https://images.microbadger.com/badges/image/cantara/sonarcube.svg)](https://microbadger.com/images/cantara/sonarcube "Get your own image badge on microbadger.com") 
+* https://hub.docker.com/r/cantara/sonarcube/ 
+* https://github.com/Cantara/maven-infrastructure/tree/master/sonarcube
 
 ## Webproxy 
 
