@@ -30,7 +30,6 @@ RUN \
 #  chmod a+w ${JRE}/lib ${JRE}/lib/net.properties && \
   rm -rf /var/cache/apk/*
 
-RUN apk-install bash
 
 WORKDIR /root
 
