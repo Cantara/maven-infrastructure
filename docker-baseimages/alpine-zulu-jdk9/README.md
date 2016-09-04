@@ -8,6 +8,7 @@ http://www.azul.com/zulu
 
 This is a stripped down docker image with the Zulu Open JDK 9 early preview using the Alpine Linux distribution so it is one of the smallest JDK9 Docker distributions in the world.
 
+[![](https://images.microbadger.com/badges/version/cantara/alpine-zulu-jdk9.svg)](http://microbadger.com/images/cantara/alpine-zulu-jdk9 "Get your own version badge on microbadger.com")
 
 ```
 sudo docker pull cantara/alpine-zulu-jdk9
