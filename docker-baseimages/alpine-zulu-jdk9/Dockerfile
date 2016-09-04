@@ -10,8 +10,8 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.license="Apache License - Version 2.0" \
       org.label-schema.name="Maven Infrastructure" \
       org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-type="e.g. Git" \
-      org.label-schema.vcs-url="e.g. https://github.com/microscaling/microscaling"
+      org.label-schema.vcs-type="Github" \
+      org.label-schema.vcs-url="https://github.com/Cantara/maven-infrastructure"
 # If release changes, the checksum and URL need to be updated
 # See http://www.azulsystems.com/products/zulu/downloads#Linux
 #
