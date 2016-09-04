@@ -9,6 +9,7 @@ http://www.azul.com/zulu
 
 This is a stripped down docker image with the Zulu Open JDK 9 early preview using the Deboan Linux distribution.
 
+[![](https://images.microbadger.com/badges/version/cantara/debian-sid-zulu-jdk9.svg)](http://microbadger.com/images/cantara/debian-sid-zulu-jdk9 "Get your own version badge on microbadger.com")
 
 ```
 sudo docker pull cantara/debian-sid-zulu-jdk9
