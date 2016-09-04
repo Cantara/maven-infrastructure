@@ -5,6 +5,15 @@ MAINTAINER totto@totto.org
 # If release changes, the checksum and URL need to be updated
 # See http://www.azulsystems.com/products/zulu/downloads#Linux
 #
+ARG BUILD_DATE
+ARG VCS_REF
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.docker.dockerfile="/Dockerfile" \
+      org.label-schema.license="Apache License - Version 2.0" \
+      org.label-schema.name="Maven Infrastructure" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-type="Github" \
+      org.label-schema.vcs-url="https://github.com/Cantara/maven-infrastructure"
 # Replace duplicate files in JDK bin with links to JRE bin
 # If release changes, the checksum and URL need to be updated
 # See http://www.azulsystems.com/products/zulu/downloads#Linux
