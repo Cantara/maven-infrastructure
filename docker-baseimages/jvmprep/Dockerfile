@@ -1,4 +1,5 @@
-FROM gliderlabs/alpine:3.4
+FROM frolvlad/alpine-glibc:alpine-3.4
+# gliderlabs/alpine:3.4
 # alpine:latest
 # gliderlabs/alpine:3.2
 
