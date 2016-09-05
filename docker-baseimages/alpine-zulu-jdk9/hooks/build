@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+echo "------ HOOK START - BUILD -------"
+printenv
+
+docker build --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` --build-arg VCS_REF=$SOURCE_COMMIT -t $IMAGE_NAME .
+
+echo "------ HOOK END - BUILD -------"
+Contact GitHub API Training Shop Blog About
+
