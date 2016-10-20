@@ -34,8 +34,8 @@ ENV CA_CERTIFICATES_JAVA_VERSION 20140324
 #
 # Replace duplicate files in JDK bin with links to JRE bin
 RUN \
-  checksum="22c028d-a5a631a-53a58457e6e40" && \
-  url="http://cdn.azul.com/zulu-pre/bin/zulu9.0.0.7-ea-jdk9.0.0-linux_x64.tar.gz" && \
+  checksum="22c029f-a60d723-53e4b13cd2ab1" && \
+  url="http://cdn.azul.com/zulu-pre/bin/zulu9.0.0.8-ea-jdk9.0.0-linux_x64.tar.gz" && \
   referer="http://www.azulsystems.com/zuludoc" && \
   etag=$(curl -sI --referer "${referer}" "${url}" | awk -F"\"|:" '/^ETag: / {print $3}') && \
 #  if [ "X${checksum}" == "X${etag}" ]; then \
