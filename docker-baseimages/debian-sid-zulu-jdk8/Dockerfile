@@ -13,7 +13,7 @@ RUN echo "export TERM=xtermc" >> ~/.bashrc
 #RUN echo "deb http://ftp.no.debian.org/debian/ sid main" > /etc/apt/sources.list
 
 RUN apt-get update && apt-get install -y --no-install-recommends \ 
-	ca-certificates curl wget zip unzip bzip2 vim less procps \
+	ca-certificates curl wget zip unzip bzip2 vim less procps gnupg2 dirmngr \
 	&& rm -rf /var/lib/apt/lists/*
 
 
