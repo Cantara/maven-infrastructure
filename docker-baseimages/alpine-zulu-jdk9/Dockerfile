@@ -33,6 +33,8 @@ RUN ALPINE_GLIBC_BASE_URL="https://github.com/sgerrand/alpine-pkg-glibc/releases
         "$ALPINE_GLIBC_BIN_PACKAGE_FILENAME" \
         "$ALPINE_GLIBC_I18N_PACKAGE_FILENAME"
 
+
+
 ENV LANG=C.UTF-8
 
 # Secure the container so that no base users (e.g. root, operator) have a login.
