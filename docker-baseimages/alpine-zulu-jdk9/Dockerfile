@@ -1,120 +1,62 @@
-FROM alpine:3.4
+FROM alpine:3.5
 
-# Here we install GNU libc (aka glibc) and set C.UTF-8 locale as default.
+RUN GLIBC_BASE_URL="https://github.com/sgerrand/alpine-pkg-glibc/releases/download" \
+ && GLIBC_PACKAGE_VERSION="2.25-r0" \
+ && GLIBC_BASE_PACKAGE="glibc-${GLIBC_PACKAGE_VERSION}.apk" \
+ && GLIBC_BIN_PACKAGE="glibc-bin-${GLIBC_PACKAGE_VERSION}.apk" \
+ && GLIBC_I18N_PACKAGE="glibc-i18n-${GLIBC_PACKAGE_VERSION}.apk" \
+ && ZULU_VERSION="9.0.0.10-ea-jdk9.0.0" \
+ && ZULU_ARCHIVE_BASE="zulu${ZULU_VERSION}-linux_x64" \
+ && apk update \
+ && apk upgrade --no-cache  \
+ && apk add --no-cache \
+            --virtual=.build-dependencies \
+            ca-certificates \
+            curl \
+ && curl -fSL \
+         "https://raw.githubusercontent.com/andyshinn/alpine-pkg-glibc/master/sgerrand.rsa.pub" \
+         -o "/etc/apk/keys/sgerrand.rsa.pub" \
+ && curl -fSL \
+         "${GLIBC_BASE_URL}/${GLIBC_PACKAGE_VERSION}/${GLIBC_BASE_PACKAGE}" \
+         -o "/tmp/${GLIBC_BASE_PACKAGE}" \
+ && curl -fSL \
+         "${GLIBC_BASE_URL}/${GLIBC_PACKAGE_VERSION}/${GLIBC_BIN_PACKAGE}" \
+         -o "/tmp/${GLIBC_BIN_PACKAGE}" \
+ && curl -fSL \
+         "${GLIBC_BASE_URL}/${GLIBC_PACKAGE_VERSION}/${GLIBC_I18N_PACKAGE}" \
+         -o "/tmp/${GLIBC_I18N_PACKAGE}" \
+ && apk add --no-cache \
+            "/tmp/${GLIBC_BASE_PACKAGE}" \
+            "/tmp/${GLIBC_BIN_PACKAGE}" \
+            "/tmp/${GLIBC_I18N_PACKAGE}" \
+ && rm -f "/etc/apk/keys/sgerrand.rsa.pub" \
+ && /usr/glibc-compat/bin/localedef --force --inputfile en_US --charmap UTF-8 en_US.UTF-8 || true \
+ && apk del glibc-i18n \
+ && rm -f "/tmp/${GLIBC_BASE_PACKAGE}" \
+          "/tmp/${GLIBC_BIN_PACKAGE}" \
+          "/tmp/${GLIBC_I18N_PACKAGE}" \
+ && echo 'export LANG=en_US.UTF-8' > /etc/profile.d/locale.sh \
+ && apk add --no-cache dumb-init \
+ && curl -fSL \
+         "https://cdn.azul.com/zulu-pre/bin/${ZULU_ARCHIVE_BASE}.tar.gz" \
+         -o "/tmp/${ZULU_ARCHIVE_BASE}.tar.gz" \
+ && mkdir -p /opt \
+ && tar xzf "/tmp/${ZULU_ARCHIVE_BASE}.tar.gz" -C /opt \
+ && rm -f "/tmp/${ZULU_ARCHIVE_BASE}.tar.gz" \
+ && mv "/opt/${ZULU_ARCHIVE_BASE}" /opt/jdk \
+ && chown -R root:root /opt/jdk \
+ && rm -rf /opt/jdk/demo \
+           /opt/jdk/man \
+           /opt/jdk/sample \
+           /opt/jdk/src.zip \
+ && echo 'export JAVA_HOME=/opt/jdk' > /etc/profile.d/jdk.sh  \
+ && apk del .build-dependencies \
+ && rm -f /var/cache/apk/*.tar.gz
 
-RUN ALPINE_GLIBC_BASE_URL="https://github.com/sgerrand/alpine-pkg-glibc/releases/download" && \
-    ALPINE_GLIBC_PACKAGE_VERSION="2.23-r3" && \
-    ALPINE_GLIBC_BASE_PACKAGE_FILENAME="glibc-$ALPINE_GLIBC_PACKAGE_VERSION.apk" && \
-    ALPINE_GLIBC_BIN_PACKAGE_FILENAME="glibc-bin-$ALPINE_GLIBC_PACKAGE_VERSION.apk" && \
-    ALPINE_GLIBC_I18N_PACKAGE_FILENAME="glibc-i18n-$ALPINE_GLIBC_PACKAGE_VERSION.apk" && \
-    apk add --no-cache --virtual=.build-dependencies wget ca-certificates && \
-    wget \
-        "https://raw.githubusercontent.com/andyshinn/alpine-pkg-glibc/master/sgerrand.rsa.pub" \
-        -O "/etc/apk/keys/sgerrand.rsa.pub" && \
-    wget \
-        "$ALPINE_GLIBC_BASE_URL/$ALPINE_GLIBC_PACKAGE_VERSION/$ALPINE_GLIBC_BASE_PACKAGE_FILENAME" \
-        "$ALPINE_GLIBC_BASE_URL/$ALPINE_GLIBC_PACKAGE_VERSION/$ALPINE_GLIBC_BIN_PACKAGE_FILENAME" \
-        "$ALPINE_GLIBC_BASE_URL/$ALPINE_GLIBC_PACKAGE_VERSION/$ALPINE_GLIBC_I18N_PACKAGE_FILENAME" && \
-    apk add --no-cache \
-        "$ALPINE_GLIBC_BASE_PACKAGE_FILENAME" \
-        "$ALPINE_GLIBC_BIN_PACKAGE_FILENAME" \
-        "$ALPINE_GLIBC_I18N_PACKAGE_FILENAME" && \
-    \
-    rm "/etc/apk/keys/sgerrand.rsa.pub" && \
-    /usr/glibc-compat/bin/localedef --force --inputfile POSIX --charmap UTF-8 C.UTF-8 || true && \
-    echo "export LANG=C.UTF-8" > /etc/profile.d/locale.sh && \
-    \
-    apk del glibc-i18n && \
-    \
-    rm "/root/.wget-hsts" && \
-    apk del .build-dependencies && \
-    rm \
-        "$ALPINE_GLIBC_BASE_PACKAGE_FILENAME" \
-        "$ALPINE_GLIBC_BIN_PACKAGE_FILENAME" \
-        "$ALPINE_GLIBC_I18N_PACKAGE_FILENAME"
+ENV LANG=en_US.UTF-8 \
+    JAVA_HOME=/opt/jdk
+ENV PATH ${PATH}:${JAVA_HOME}/bin
 
-
-
-ENV LANG=C.UTF-8
-
-# Secure the container so that no base users (e.g. root, operator) have a login.
-# Provide a script that runs every container invocation (specifically to update Java net.properties).
-# Get ready to accept a JVM installation.
-
-ENV JAVA_HOME /usr/local/java
-ENV JRE ${JAVA_HOME}/jre
-ENV JAVA_OPTS=-Djava.awt.headless=true PATH=${PATH}:${JRE}/bin:${JAVA_HOME}/bin
-ENV ENV=/etc/shinit.sh
-
-COPY shinit.sh /etc/
-
-RUN \
-  chmod a=rx /etc/shinit.sh && \
-  mkdir java
-
-WORKDIR /tmp/java
-
-
-# Based upon work by josh@grahamis.com
-# Build-time metadata as defined at http://label-schema.org
-ARG BUILD_DATE
-ARG VCS_REF
-LABEL org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.docker.dockerfile="/maven-infrastructure/docker-baseimages/alpine-zulu-jdk9/Dockerfile" \
-      org.label-schema.license="Apache License - Version 2.0" \
-      org.label-schema.name="Maven Infrastructure" \
-      org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-type="Github" \
-      org.label-schema.vcs-url="https://github.com/Cantara/maven-infrastructure"
-USER root
-
-# Install packages
-RUN \
-  echo ipv6 >> /etc/modules && \
-  apk update && \
-  apk upgrade && \
-  apk add --update ca-certificates curl
-
-
-
-# Secure the container so that no base users (e.g. root, operator) have a login.
-# Provide a script that runs every container invocation (specifically to update Java net.properties).
-# Get ready to accept a JVM installation.
-
-ENV JAVA_HOME /usr/local/java
-ENV JRE ${JAVA_HOME}/jre
-ENV JAVA_OPTS=-Djava.awt.headless=true PATH=${PATH}:${JRE}/bin:${JAVA_HOME}/bin
-ENV ENV=/etc/shinit.sh
-
-COPY shinit.sh /etc/
-
-RUN \
-  chmod a=rx /etc/shinit.sh && \
-  mkdir java
-
-WORKDIR /tmp/java
-
-# If release changes, the checksum and URL need to be updated
-# See http://www.azulsystems.com/products/zulu/downloads#Linux
-#
-# Replace duplicate files in JDK bin with links to JRE bin
-RUN \
-  checksum="22c0348-cd7598d-5481f542d6340" && \
-  url="http://cdn.azul.com/zulu-pre/bin/zulu9.0.0.10-ea-jdk9.0.0-linux_x64.tar.gz" && \
-  referer="http://www.azulsystems.com/zuludoc" && \
-  etag=$(curl -sI --referer "${referer}" "${url}" | awk -F"\"|:" '/^ETag: / {print $3}') && \
-  if [ "X${checksum}" == "X${etag}" ]; then \
-    curl -O -L --referer "${referer}" "${url}"; \
-  else \
-    echo "[FATAL] Java ZIP ETag ${etag} doesn't match checksum ${checksum}. Exiting." >&2 && \
-    exit 1; \
-  fi && \
-  tar -xzf zulu*.gz && \
-  for ff in ${JAVA_HOME}/bin/*; do f=$(basename $ff); if [ -e ${JRE}/bin/$f ]; then ln -snf ${JRE}/bin/$f $ff; fi; done && \
-#  chmod a+w ${JRE}/lib ${JRE}/lib/net.properties && \
-  rm -rf /var/cache/apk/*
-
-
-WORKDIR /root
+ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 
 
