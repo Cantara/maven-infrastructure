@@ -20,8 +20,8 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 #
 # Replace duplicate files in JDK bin with links to JRE bin
 RUN \
-  checksum="22c033e-4a65c89-546ea351df2c0" && \
-  url="http://cdn.azul.com/zulu/bin/zulu8.20.0.5-jdk8.0.121-linux_x64.tar.gz" && \
+  checksum="22c03ca-4a6b209-54cf8e26dcb80" && \
+  url="http://cdn.azul.com/zulu/bin/zulu8.21.0.1-jdk8.0.131-linux_x64.tar.gz" && \
   referer="http://www.azulsystems.com/zuludoc" && \
   etag=$(curl -sI --referer "${referer}" "${url}" | awk -F"\"|:" '/^ETag: / {print $3}') && \
   if [ "X${checksum}" == "X${etag}" ]; then \

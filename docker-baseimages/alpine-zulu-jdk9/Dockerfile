@@ -1,5 +1,5 @@
-FROM alpine:3.6
-# FROM cantara/jvmprep
+# FROM alpine:3.6
+FROM cantara/jvmprep
 
 MAINTAINER totto@totto.org
 # Based upon work by josh@grahamis.com
