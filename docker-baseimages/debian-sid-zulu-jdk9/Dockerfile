@@ -8,6 +8,17 @@
 FROM debian:sid-slim
 MAINTAINER erik-dev@fjas.no
 
+ARG BUILD_DATE
+ARG VCS_REF
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.docker.dockerfile="/maven-infrastructure/docker-baseimages/alpine-zulu-jdk9/Dockerfile" \
+      org.label-schema.license="Apache License - Version 2.0" \
+      org.label-schema.name="Maven Docker Infrastructure - Zulu JDK9 Baseimage" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-type="Github" \
+      org.label-schema.vcs-url="https://github.com/Cantara/maven-infrastructure"
+
+
 RUN echo "export TERM=xtermc" >> ~/.bashrc
 # use norwegian debian mirror to speed up downloads
 #RUN echo "deb http://ftp.no.debian.org/debian/ sid main" > /etc/apt/sources.list
