@@ -5,7 +5,7 @@
 ## https://github.com/zulu-openjdk/zulu-openjdk/blob/master/debian/8u45-8.7.0.5/Dockerfile
 ## https://github.com/zulu-openjdk/zulu-openjdk/blob/master/debian/8u66-8.11.0.1/Dockerfile
 
-FROM debian:sid
+FROM debian:sid-slim
 MAINTAINER erik-dev@fjas.no
 
 RUN echo "export TERM=xtermc" >> ~/.bashrc
