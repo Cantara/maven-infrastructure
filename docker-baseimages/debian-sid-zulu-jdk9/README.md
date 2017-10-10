@@ -1,23 +1,15 @@
-### What is Zulu? Zulu Duke in a Box
+# OpenJDK 9 image
 
-Zulu is a widely available binary distribution of OpenJDK. Zulu distributions are fully tested and compatibility verified builds of the latest versions of the OpenJDK 9, 8, 7, and 6 platforms. Zulu is av
-ailable free of charge for Linux, Windows, and MacOS platforms, with commercial support available upon request.
+OpenJDK 9 using Alpine Linux. Image virtual size approx. 111.8 MB (as of 2nd Feb 2016)
 
-Zulu is built, tested, supported and made available by Azul Systems.
+[![](https://images.microbadger.com/badges/version/cantara/alpine-openjdk-jdk9.svg)](http://microbadger.com/images/cantara/alpine-openjdk-jdk9 "Get your own version badge on microbadger.com")
 
-http://www.azul.com/zulu
+Image published at https://hub.docker.com/r/cantara/alpine-openjdk-jdk9/
 
-This is a stripped down docker image with the Zulu Open JDK 9 early preview using the Deboan Linux distribution.
-
-[![](https://images.microbadger.com/badges/version/cantara/debian-sid-zulu-jdk9.svg)](http://microbadger.com/images/cantara/debian-sid-zulu-jdk9 "Get your own version badge on microbadger.com")
-
+```bash
+sudo docker pull cantara/alpine-openjdk-jdk9
+sudo docker run -it --rm cantara/alpine-openjdk-jdk9 java -version
 ```
-sudo docker pull cantara/debian-sid-zulu-jdk9
-sudo docker run -it cantara/debian-sid-zulu-jdk9 -version
-```
- And have some fun
 
-```
-sudo docker run -it cantara/debian-sid-zulu-jdk9 jshell  ### Start the new REPL jshell (Project Kulla)
-```
+Build and test locally with `./test-build.sh`
 
