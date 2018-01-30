@@ -2,6 +2,7 @@ FROM frolvlad/alpine-glibc
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
+RUN apk add --no-cache libstdc++
 RUN ZULU_ARCH=zulu9.0.1.3-jdk9.0.1-linux_x64.tar.gz && \
 	INSTALL_DIR=/usr/lib/jvm && \
 	BIN_DIR=/usr/bin && \
