@@ -6,6 +6,7 @@ RUN tar xzvf openjdk-10_linux-x64_bin.tar.gz
 RUN ls
 RUN mkdir /usr/lib/jvm
 RUN chpst -u root mv jdk-10 /usr/lib/jvm/java-10-openjdk-x64/
+RUN rm openjdk-10_linux-x64_bin.tar.gz
 ENV PATH="/usr/lib/jvm/java-10-openjdk-x64/bin:${PATH}"
 
 RUN chpst -u root update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-10-openjdk-x64/bin/java 1
