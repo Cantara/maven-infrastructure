@@ -1,4 +1,5 @@
-FROM blitznote/debase:17.10
+FROM blitznote/debase:16.04
+# 17.10
 MAINTAINER bard.lind@gmail.com
 
 #RUN apt-get -q update
