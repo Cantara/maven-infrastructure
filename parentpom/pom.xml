@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>no.cantara.emi</groupId>
     <artifactId>parent</artifactId>
-    <version>7</version>
+    <version>8</version>
     <packaging>pom</packaging>
     <name>Cantara Parent POM</name>
     <description>
@@ -121,7 +121,9 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.21.0</version>
+                    <version>2.20</version>
+                    <!-- Problems building in alpine docker container in jenkins using 2.21.0, so downgrading to 2.20.
+                    http://raehal.me/maven-surefire-plugin-on-Docker/-->
                 </plugin>
             </plugins>
         </pluginManagement>
