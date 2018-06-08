@@ -3,10 +3,34 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>no.cantara.emi</groupId>
     <artifactId>parent</artifactId>
-    <version>6</version>
+    <version>7</version>
     <packaging>pom</packaging>
     <name>Cantara Parent POM</name>
+    <description>
+        The responsibility of the parent pom is to avoid duplication of configuration that is identical between all Java projects.
+        It should be minimal and non-intrusive - less is more.
+        The responsibility is limited to
 
+        * distributionManagement - default OSS repositories for snapshots and releases.
+        It is possible to override this setting to use a customer project repository instead of the default, shared OSS repository.
+
+        * pluginManagement - specify versions of build plugins to ensure build reproducability.
+        Only plugins used by _most_ projects should be added.
+        See description of recommendation here: https://maven.apache.org/guides/mini/guide-configuring-plugins.html.
+
+        * maven-compiler-plugin - The default configuration for Maven Compiler Plugin is unsuited for most Java projects. The parent pom includes a configuration (for example JDK version and memory settings) considered appropritate for most Java projects.
+
+
+        The parent pom should NOT be used for
+        * depdendency management - dependencies will wary, adding dependency management to the parent pom creates a lot of unnecessary tight couplings.
+        * build configuration  - builds vary, except for java (see maven-compiler-plugin above), the parent pom should not be used for enforcing behaviour across projects.
+        * reporting - maven reporting support is not that popular anymore
+    </description>
+
+
+
+
+    <!-- Remember to override this section in the inheriting project if you want to use a different repository for your artifacts. -->
     <distributionManagement>
         <repository>
             <id>cantara</id>
@@ -20,9 +44,8 @@
         </snapshotRepository>
     </distributionManagement>
 
-    <prerequisites>
-        <maven>3.0.4</maven>
-    </prerequisites>
+
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -30,23 +53,25 @@
     </properties>
 
     <build>
-        <!-- Check for plugin updates with mvn versions:display-plugin-updates -->
+        <!-- Check for plugin updates:
+         mvn org.codehaus.mojo:versions-maven-plugin:2.5:display-plugin-updates
+         -->
         <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>2.5.5</version>
+                    <version>3.1.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
-                    <version>2.6.1</version>
+                    <version>3.1.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.3</version>
+                    <version>3.7.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -61,47 +86,42 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>2.6</version>
+                    <version>3.1.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.10.3</version>
+                    <version>3.0.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
-                    <version>2.5.2</version>
+                    <version>2.5.3</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>2.7</version>
+                    <version>3.1.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
-                    <version>2.4.1</version>
+                    <version>3.1.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-site-plugin</artifactId>
-                    <version>3.4</version>
+                    <version>3.7.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>2.4</version>
+                    <version>3.0.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.18.1</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>appassembler-maven-plugin</artifactId>
-                    <version>1.10</version>
+                    <version>2.21.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -116,6 +136,32 @@
                     <meminitial>64m</meminitial>
                     <maxmem>512m</maxmem>
                 </configuration>
+            </plugin>
+
+            <!--
+            Use enforcer instead of prerequisites to validate maven version
+            https://maven.apache.org/enforcer/enforcer-rules/requireMavenVersion.html
+            https://maven.apache.org/docs/history.html, 3.1.1 is the latest before Java 6 is required.
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.0.0-M1</version>
+                <executions>
+                    <execution>
+                        <id>enforce-maven</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>3.0.5</version>
+                                </requireMavenVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
