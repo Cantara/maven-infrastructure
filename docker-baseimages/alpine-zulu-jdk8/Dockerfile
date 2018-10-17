@@ -5,7 +5,7 @@ MAINTAINER totto@totto.org
 # If release changes, the checksum and URL need to be updated
 # See http://www.azulsystems.com/products/zulu/downloads#Linux
 #
-#
+#  https://cdn.azul.com/zulu/bin/zulu8.31.0.1-jdk8.0.181-linux_x64.tar.gz
 ARG BUILD_DATE
 ARG VCS_REF
 LABEL org.label-schema.build-date=$BUILD_DATE \
@@ -22,7 +22,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 # Replace duplicate files in JDK bin with links to JRE bin
 RUN \
   checksum="22c04b5-4a6d06a-55551618e9740" && \
-  url="http://cdn.azul.com/zulu/bin/zulu8.27.0.7-jdk8.0.162-linux_x64.tar.gz" && \
+  url="http://cdn.azul.com/zulu/bin/zulu8.31.0.1-jdk8.0.181-linux_x64.tar.gz" && \
   referer="http://www.azulsystems.com/zuludoc" && \
   etag=$(curl -sI --referer "${referer}" "${url}" | awk -F"\"|:" '/^ETag: / {print $3}') && \
 #  if [ "X${checksum}" == "X${etag}" ]; then \
