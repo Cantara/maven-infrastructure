@@ -1,4 +1,4 @@
-# Docker file inspired by 
+# Docker file inspired by: 
 ## https://github.com/jenkinsci/docker
 ## https://github.com/docker-library/java/blob/b4a3c296023e590e410f645ab83d3c11a30cf535/openjdk-8-jdk/Dockerfile
 ## https://github.com/zulu-openjdk/zulu-openjdk/blob/master/debian/8u45-8.7.0.5/Dockerfile
