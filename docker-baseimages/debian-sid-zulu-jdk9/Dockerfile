@@ -23,11 +23,12 @@ RUN echo "export TERM=xtermc" >> ~/.bashrc
 # use norwegian debian mirror to speed up downloads
 #RUN echo "deb http://ftp.no.debian.org/debian/ sid main" > /etc/apt/sources.list
 
-RUN apt-get update && apt-get install -y --no-install-recommends \ 
+RUN apt-get update  &&apt-get install -y --no-install-recommends \
 	ca-certificates curl wget zip unzip bzip2 vim less \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN apt-get upgrade
+RUN apt-get -y upgrade
+
 RUN echo "alias ll='ls -l --color=auto'" >> /etc/bash.bashrc
 RUN echo "alias la='ls -la --color=auto'" >> /etc/bash.bashrc
 
