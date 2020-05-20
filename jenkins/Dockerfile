@@ -10,7 +10,7 @@ FROM cantara/debian-sid-zulu-jdk8
 MAINTAINER erik-dev@fjas.no
 
 # Jenkins is a strange product. It is often necessary to be able to log in to image and fix stuff. 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
                vim git openssh-client \
         && rm -rf /var/lib/apt/lists/*
 
