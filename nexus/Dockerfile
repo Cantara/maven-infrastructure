@@ -7,6 +7,9 @@ FROM cantara/debian-sid-zulu-jdk8
 
 MAINTAINER erik-dev@fjas.no
 
+
+RUN apt-get update &&apt-get upgrade -y
+
 ### Install Nexus 
 ENV SONATYPE_WORK /sonatype-work/nexus
 ENV NEXUS_DL_URL http://download.sonatype.com/nexus/oss/nexus-2.12.1-01-bundle.tar.gz 
