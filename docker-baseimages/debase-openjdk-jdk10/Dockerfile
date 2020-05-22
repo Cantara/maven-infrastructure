@@ -2,7 +2,7 @@ FROM blitznote/debase:16.04
 # 17.10
 MAINTAINER bard.lind@gmail.com
 
-#RUN apt-get -q update
+RUN apt-get  update && apt-get upgrade -y
 
 RUN /usr/bin/curl -k -O https://download.java.net/java/GA/jdk10/10/binaries/openjdk-10_linux-x64_bin.tar.gz 
 RUN ls
