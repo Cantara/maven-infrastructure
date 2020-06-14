@@ -1,6 +1,6 @@
 # Maven Infrastructure using Docker
 
-A collection of tools and recepies to make your Maven world shine :)
+A collection of tools and recepies to make your Maven world shine :)    
 
 ## The basics:  Some good small Java JDK Docker Baseimages
 
