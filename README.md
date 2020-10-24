@@ -34,7 +34,7 @@ A collection of tools and recepies to make your Maven world shine  :/)
 
 ## Webproxy 
 
-Not using docker yet. 
+Not using docker  yet. 
 
 
 sudo aptitude install apache and use something like the following for webproxy config: 
