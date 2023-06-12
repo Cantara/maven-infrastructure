@@ -1,0 +1,144 @@
+= Transparent social coding - tools, techniques and processes.
+
+
+== Motivation and goals
+
+In XX, we are changing almost every aspect of how we build the Xx platform. In order to try to be successful, we will have to optimize the processes and effort to the following key elements:
+
+    Maximize for learning
+        Learning by doing
+        Experiment in "live", shared and transparent codebases.
+        Transparency to learn/help each other and progress
+    Speed - Move fast, learn and adjust
+        Eliminate waste, collaborate by social codeing
+        Transparency to reduce admin coordination overhead and double efforts
+        Plan to fail, but fail early (and learn)
+
+
+A subnote:   We all know that there is no "perfect" process for anything, the proposed flow below is meant to be the default mindset/flow. Deviations from the flow should be suggested and approved on case-to-case basis, especially in the beginning to build understanding of why and when deviations are needed and useful.are
+
+=== Description
+
+==== The benefits of social coding
+
+Social coding empowers knowledge exchange. Software engineers have ideas all day long. Through social coding, they can discover and reuse code or solutions that they might otherwise unnecessarily duplicate. With social coding, you can discover, share, and implement new ideas with friends, and even with strangers!
+
+Social coding can also increase the quality of your software.  All developers can see and comment on the code changes. When you know that your code is going to be viewed by a wide audience, you have an added incentive to get it right. As the size of the audience increases, so does the likelihood that someone in the group knows the answer to a problem.
+
+Not only can you learn from social coding, but it can be fun. Social coding fosters a fun work environment, encourages peer recognition, and promotes meritocracy, all of which are important to the DevOps culture.
+
+
+==== Reducing the size of the communications network
+
+Social coding tools such as GitHub greatly reduce the need for direct person-to-person communication in the software development process. GitHub employs extreme transparency, making all user actions publicly visible so that developers and teams can self-organize in a less centralized way.
+
+Perhaps the most important transparency features that GitHub provides are its embedded documentation, issues, and pull requests. In GitHub, a project's README file is a first class citizen that gets rendered on the project's home page and is indexed for search with the code. The README file is the first thing that a new contributor sees. If the file is well crafted, it can provide the information that a developer needs to get started rather than requiring that person to ask a project member for help.
+
+Issues are persisted message threads in the project context. Issues facilitate general project discussions and workflow management. Perhaps the most important characteristic of issues is that they are not addressed by default. Rather, all project maintainers are notified when a new issue is created and can respond or delegate the issue as needed. This structure frees a new contributor from having to discover who the right person on the project is to address their concerns.
+
+Because the features in GitHub are transparent, the communication network for a team can resemble a small-world network instead of a complete graph, reducing communication overhead to linear or even sublinear growth. One of the immediate implications of this efficient communication style is the ability to untangle cross-team dependencies that are related to prioritization and backlog management.
+
+For example, Team A uses code from Team B, and Team A needs a change in Team B's code. The traditional approach is to rely on Team B to make the change because that team possesses the knowledge to manage the code well. However, social coding empowers Team A to make and submit the change rather than wait for Team B to prioritize the work. Full project transparency gives Team A access to the same information that Team B has for how to manage the code.
+
+
+==== Reducing communication overhead
+
+Beyond facilitating more effective and efficient team interactions, social coding tools and practices tend to reduce the number of conversations that are necessary. When project activities and conversations are publicly available and searchable, project maintainers are freed from having to answer the same questions repeatedly. Instead, users can search for answers to their questions before they ask the maintainers for guidance.
+
+GitHub  facilitates long running asynchronous conversations through issues and sometimes pull requests. However, sometimes interacting in real time is a more efficient and productive way to work. SlackTeams provides a real-time collaboration experience that is both archived and searchable. While many instant messaging solutions are built primarily to facilitate point-to-point discussions, SlackTeams makes group chat a first-class feature. The focus on group chats is in keeping with the social coding principle of transparency, and it allows the broader team to benefit and learn from all conversations. Like GitHub issues, the group channels on SlackTeams are helpful because new contributors don't need to know who to address questions to. Rather, they can broadcast questions to all members of a channel and whomever has the answer can respond.
+
+What about when you need a whiteboard so that ideas can be generated quickly and reorganized later? This scenario is common in brainstorming sessions and retrospectives, which can be challenging to do through SlackTeams channels or GitHub issues. Thankfully, MURAL provides a shared, whiteboard context where teams can create and manage virtual sticky notes. These boards facilitate real-time collaboration and are persisted much like SlackTeams conversations.
+Tools
+
+As exemplified in the above description, we will leverage GitHub as the new source code repository for hero codebases. We will also leverage the use of GitHub issues to plan, track and communicate around the code. GitHub issues will not completely replace Jira, but will be the technical and codebase daily process tasks. Jira will continue to have a cross-repository, time-based functional view and will have an explicit or implicit mapping to codebases with their corresponding tasks. Jira issues which is not resolved with code/commits will not be mapped to GitHub issues. In many ways you might think of the Jira issues as a "What" perspective while GitHub issues will be the "How" perspective.
+
+===== In GitHub, we will use a few dimensions to categorize an issue
+
+* Labels:  This is typically non-functional requirements (scale ability (SLAs), health/readiness/introspection, multi-tenancy, evolve ability (patch/feature/semantic versioning/db migration++ or functional milestones and other categorizations like bug/new feature/critical_bug++
+* Milestones:  Typically used as a organization of the backlog in terms of planned urgency and timeframe with examples like Blue sky (we do not know when), next tasks (always up for grabs), V1.2-release and such.
+* Projects:   Is used to have an up-to-date view of the state of issues allocated to the current timeframe (sprint) including an explicit Definition-of-Done and DoD verification status.
+
+
+==== Techniques and processes
+
+===== Some words on commits
+
+To ensure an efficient and transparent code collaboration, we'll introduce a few guidelines.
+
+* Expectation of frequent commits
+**  it is OK to commit unfinished code, and we expect all developers to commit to the codebase daily(on master/head/trunk) when they are at work working on the codebase.
+* https://medium.com/@mattia.battiston/why-i-love-trunk-based-development-641fcf0b94a0[Why I love trunk-based development?]
+* We expect all developers to use 5-10 minutes every day browsing GitHub and look at their own and the others commit-diffs, and we expect developers to engage in other developers commit when they observe diffs which indicate misunderstandings, design and architectural degradation and bugs/error-prone design.
+
+
+===== On README.md
+
+    Links to running environments (for the common environments)
+        API documentation(Swagger)
+        CI/CD links
+        Embedded repository status badges
+            build status,
+            version tag,
+            SNYK-vulnerability status
+            ++
+        /health and/or /info endpoint links (displaying deployed version info and dataset-info)
+            key service internals to help diagnose service staate
+        service UI links
+    Links to administrative info
+        SCM (GitHib repo)
+        Issues/Tasks/Porject links (Github + Jira) + dashboards
+        Wikis (Github/Confluence)
+    Developer introduction  (build, test locally)
+
+
+When moving to many repositories/services it gets way more important to think of the README.md as a way to encourage/sell the value of the code-base to other developers/bystanders...
+
+  - so adding working links to the README which show the /info of the service running live is useful...
+  - i.e. a developer can then even from the Github web UI pick and merge a pull-request (dependency patch for example)...
+  - check that it is built and working by clicking the CI status link for the repository...
+  - and verifying that it is updated in DEVTEST by clicking the info link....
+  - it simplifies and make using/updating/patching++   way, way more fast end efficient..
+
+
+.one use-case you may have in mind to guide is...
+
+    - a developer is awoke at 0300 to fix a critical issue blocking the platform in production...
+    - he/she is dead tired and has never seen the code-base before...
+    - how to make sure that he/she fast get a correct understanding of the situation, and to help him/her to fix the problem and release a patch to production as fast as possible
+    (i.e.  if production is running 1.2.5  and the current version of the code-base is 1.7.6 - the consequences for the result may be critical if a 1.7.6 patch is released versus a 1.2.7 patch..)
+
+
+
+===== Some words on codebase dependencies.
+
+All codebases will use both SNYK and GitHub dependency analysis to expose known security vulnerabilities in dependencies. Patch-able vulnerable dependencies should be updated immediately, and are not allowed to remain un-patched for more than 2 patch-releases (see some words on semantic versoning and releases) as this represent a clear and present danger for XX as a business. In general, dependencies should never be more than 2 feature-releases from the latest dependency release without special dispensation.
+Some words on features
+
+All new business features on production codebases will be wrapped in Unleash feature toggles to provide they are not blocking release at any time to production. When the feature is done (see Definition-of-Done below), the developer and/or team are responsible to notify the product/module/feature owner without delay, so the product-team may verify and request changes to the feature as well as planning and getting ready for the feature release to our customers in the way the market and customers expect and require it. Features which require database changes (java microservices/modules) will use Flyway to auto-migrate existing datasources/databases.
+
+
+When we have features which spawn several services, the normal software engineering approach is to implement this in the core services first, and release these as we move up the stack to implement it in the services which depend on changes afterwords.  if this is not possible, the last "safety-net" for partially implemented features across several services (meaning implementing old and new side by side, and disable the new stuff until it is complete/finished) as dscribed here:  https://trunkbaseddevelopment.com/branch-by-abstraction/
+
+
+===== Some words on semantic versioning and releases
+
+All modules in Xx will actively use semantic versioning to signal the state of releases. We will release (maven release for java modules/micro-services) very often to signal and enable testing and verification on all environments except DEVTEST. Typically we will release a feature release for each issue which has been completed(validated  in DEVTEST -see Definition-of-Done). The developers may also release the codebase more frequently to enable more transparency, discussions and collaboration with product teams and other entities in the organization, typically as a patch-release.
+
+
+===== Some words on Definition-of-Done
+
+In Xx, we will focus on defining our definition-of-done to mean verified in the DEVTEST environment, which will ensure that all developers access and validate the deployed service (after CI/CD) in a real "SNAPSHOT"-environment to ensure that we validate and find issues which can only be seen and tested in a real micro service environment which is available for anyone else to reproduce. This will ensure that all developers get as much learning as possible on real-world and production aspects of their and others code changes to they will produce better code moving forward. This also require a very automatic and efficient CI/CD and DEVTEST access flow so developers does not waste too much time validating and completing tasks/issues.
+
+
+
+===== Some words on rythm
+
+====== Monday commitments
+
+Kickstarts the week. Where are we in terms of our goals, and what do we need to focus on this week to reach the targets. Use 15 minutes to discuss
+and decide. The list is posted on slack and on the Xx channel on other channels for the rest of people which is interested in Xx activities and 
+progress.
+
+====== Fridays wins
+
+We share and celebrate this weeks achievements. The winners are shared/celebrated on both the team channel and shared to all on Slack.
