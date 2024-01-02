@@ -27,5 +27,5 @@ workflow-step-api:1.11
 build-monitor-plugin:1.8+build.201601112328
 release:2.18
 embeddable-build-status:1.9
-sonar:2.4.4
+sonar:2.16.1
 jquery:1.12.4-1
