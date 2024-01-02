@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.16
+FROM phusion/baseimage:0.10.2
 MAINTAINER Thor Henning Hetland <totto@totto.org>
 
 ENV DEBIAN_FRONTEND noninteractive
