@@ -3,7 +3,7 @@ token-macro:1.12.1
 javadoc:1.6
 scm-api:1.3
 #ssh-credentials:1.11 
-git-client:1.19.6
+git-client:1.21.0
 #matrix-project:1.6
 #credentials:1.27 
 git:2.6.5
