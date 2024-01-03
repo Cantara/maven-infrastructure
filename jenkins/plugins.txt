@@ -19,7 +19,7 @@ config-file-provider:959.vcff671a_4518b_
 #pam-auth:1.2
 #translation:1.12
 #ldap:1.11
-junit:1.63
+junit:1252.vfc2e5efa_294f
 analysis-core:1.71
 dependency-check-jenkins-plugin:5.4.3
 slack:2.49
