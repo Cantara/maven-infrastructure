@@ -22,7 +22,7 @@ config-file-provider:959.vcff671a_4518b_
 junit:1.63
 analysis-core:1.71
 dependency-check-jenkins-plugin:5.4.3
-slack:2.49
+slack:684.v833089650554
 workflow-step-api:1.15
 build-monitor-plugin:1.14-745.ve2023a_305f40
 release:2.18
