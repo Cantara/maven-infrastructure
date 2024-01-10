@@ -121,7 +121,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.2.3</version>
+                    <version>3.2.5</version>
                     <!-- Problems building in alpine docker container in jenkins using 2.21.0, so downgrading to 2.20.
                     http://raehal.me/maven-surefire-plugin-on-Docker/-->
                 </plugin>
