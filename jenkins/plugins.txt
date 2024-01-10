@@ -27,5 +27,5 @@ workflow-step-api:1.15
 build-monitor-plugin:1.14-745.ve2023a_305f40
 release:2.19
 embeddable-build-status:1.9
-sonar:2.17
+sonar:2.17.1
 jquery:1.12.4-1
