@@ -23,7 +23,7 @@ junit:1.63
 analysis-core:1.71
 dependency-check-jenkins-plugin:5.4.3
 slack:2.49
-workflow-step-api:1.15
+workflow-step-api:655.v6e098b_87b_84f
 build-monitor-plugin:1.14-745.ve2023a_305f40
 release:2.19
 embeddable-build-status:1.9
