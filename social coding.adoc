@@ -142,3 +142,12 @@ progress.
 ====== Fridays wins
 
 We share and celebrate this weeks achievements. The winners are shared/celebrated on both the team channel and shared to all on Slack.
+
+
+
+===== Some references and similar articles
+
+====== On trunk-based development
+
+ * https://www.freecodecamp.org/news/what-is-trunk-based-development/
+ * https://www.linkedin.com/feed/update/urn:li:activity:7244615791168352259/
