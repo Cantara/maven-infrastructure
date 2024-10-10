@@ -3,7 +3,7 @@ token-macro:1.12.1
 javadoc:1.6
 scm-api:690.vfc8b_54395023
 #ssh-credentials:1.11 
-git-client:1.21.0
+git-client:6.1.0
 #matrix-project:1.6
 #credentials:1.27 
 git:2.6.5
