@@ -1,7 +1,7 @@
 mailer:1.34.2
 token-macro:1.12.1
 javadoc:1.6
-scm-api:690.vfc8b_54395023
+scm-api:698.v8e3b_c788f0a_6
 #ssh-credentials:1.11 
 git-client:1.21.0
 #matrix-project:1.6
