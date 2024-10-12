@@ -1,4 +1,4 @@
-mailer:1.34.2
+mailer:489.vd4b_25144138f
 token-macro:1.12.1
 javadoc:1.6
 scm-api:690.vfc8b_54395023
