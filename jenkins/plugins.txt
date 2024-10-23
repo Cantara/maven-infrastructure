@@ -28,4 +28,4 @@ build-monitor-plugin:1.14-876.v2162064db_a_93
 release:2.19
 embeddable-build-status:1.9
 sonar:2.17.2
-jquery:1.12.4-1
+jquery:1.12.4-3
