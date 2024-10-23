@@ -8,7 +8,7 @@ git-client:1.21.0
 #credentials:1.27 
 git:2.6.5
 #github:1.18.2
-maven-plugin:3.23
+maven-plugin:3.24
 #docker-plugin:0.9.0-rc1
 #matrix-auth:1.2
 config-file-provider:973.vb_a_80ecb_9a_4d0
