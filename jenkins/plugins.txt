@@ -21,7 +21,7 @@ config-file-provider:973.vb_a_80ecb_9a_4d0
 #ldap:1.11
 junit:1.63
 analysis-core:1.71
-dependency-check-jenkins-plugin:5.5.1
+dependency-check-jenkins-plugin:5.5.2
 slack:2.49
 workflow-step-api:1.15
 build-monitor-plugin:1.14-947.vfec2cf655fe2
