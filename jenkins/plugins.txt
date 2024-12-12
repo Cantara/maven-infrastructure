@@ -21,7 +21,7 @@ config-file-provider:980.v88956a_a_5d6a_d
 #ldap:1.11
 junit:1309.v0078b_fecd6ed
 analysis-core:1.71
-dependency-check-jenkins-plugin:5.5.2
+dependency-check-jenkins-plugin:5.6.0
 slack:2.49
 workflow-step-api:1.15
 build-monitor-plugin:1.14-947.vfec2cf655fe2
