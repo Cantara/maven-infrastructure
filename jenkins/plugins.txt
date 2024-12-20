@@ -26,6 +26,6 @@ slack:2.49
 workflow-step-api:1.15
 build-monitor-plugin:1.14-947.vfec2cf655fe2
 release:2.19
-embeddable-build-status:1.9
+embeddable-build-status:548.v5653c6e28c41
 sonar:2.17.3
 jquery:1.12.4-3
