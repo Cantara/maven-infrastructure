@@ -24,7 +24,7 @@ analysis-core:1.71
 dependency-check-jenkins-plugin:5.6.0
 slack:2.49
 workflow-step-api:1.15
-build-monitor-plugin:1.14-947.vfec2cf655fe2
+build-monitor-plugin:1.14-948.va_a_a_5a_7eb_1f37
 release:2.19
 embeddable-build-status:548.v5653c6e28c41
 sonar:2.17.3
