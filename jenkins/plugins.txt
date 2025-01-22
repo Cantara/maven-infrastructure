@@ -1,6 +1,6 @@
 mailer:1.34.2
 token-macro:1.12.1
-javadoc:1.6
+javadoc:310.v032f3f16b_0f8
 scm-api:703.v72ff4b_259600
 #ssh-credentials:1.11 
 git-client:1.21.0
