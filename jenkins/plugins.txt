@@ -11,7 +11,7 @@ git:2.6.5
 maven-plugin:3.26
 #docker-plugin:0.9.0-rc1
 #matrix-auth:1.2
-config-file-provider:988.v0461fcc2b_9d1
+config-file-provider:994.v3d4a_5fa_f353a_
 #script-security:1.14
 #antisamy-markup-formatter:1.3
 #cvs:2.12
