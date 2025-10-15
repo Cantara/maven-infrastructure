@@ -19,7 +19,7 @@ config-file-provider:1002.v93e06b_792d44
 #pam-auth:1.2
 #translation:1.12
 #ldap:1.11
-junit:1361.vfed194a_de34a_
+junit:1368.v066f524494ee
 analysis-core:1.71
 dependency-check-jenkins-plugin:5.6.1
 slack:795.v4b_9705b_e6d47
