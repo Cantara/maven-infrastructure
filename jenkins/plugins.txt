@@ -27,5 +27,5 @@ workflow-step-api:710.v3e456cc85233
 build-monitor-plugin:1.14-985.v7b_f37b_3d0b_f5
 release:2.19
 embeddable-build-status:627.v0249270b_488e
-sonar:2.18.1
+sonar:2.18.2
 jquery:1.12.4-3
