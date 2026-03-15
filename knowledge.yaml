@@ -1,0 +1,24 @@
+kcp_version: "0.11"
+project: maven-infrastructure
+description: "A collection of tools and recepies to make your Maven world shine :)"
+version: "0.1.0"
+updated: "2026-03-15"
+
+units:
+  - id: readme
+    path: README.md
+    intent: "Maven Infrastructure using Docker"
+    scope: global
+    audience: [human, agent]
+    validated: "2026-03-15"
+    hints:
+      token_estimate: 1000
+
+  - id: claude
+    path: CLAUDE.md
+    intent: "maven-infrastructure"
+    scope: global
+    audience: [human, agent]
+    validated: "2026-03-15"
+    hints:
+      token_estimate: 300
