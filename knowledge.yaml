@@ -1,8 +1,8 @@
-kcp_version: "0.11"
+kcp_version: "0.12"
 project: maven-infrastructure
 description: "A collection of tools and recepies to make your Maven world shine :)"
 version: "0.1.0"
-updated: "2026-03-15"
+updated: "2026-03-19"
 
 units:
   - id: readme
