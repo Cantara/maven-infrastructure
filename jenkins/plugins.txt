@@ -6,7 +6,7 @@ scm-api:728.vc30dcf7a_0df5
 git-client:1.21.0
 #matrix-project:1.6
 #credentials:1.27 
-git:2.6.5
+git:5.10.1
 #github:1.18.2
 maven-plugin:3.27
 #docker-plugin:0.9.0-rc1
