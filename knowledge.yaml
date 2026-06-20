@@ -1,8 +1,15 @@
-kcp_version: "0.12"
+kcp_version: "0.21"
 project: maven-infrastructure
 description: "A collection of tools and recepies to make your Maven world shine :)"
 version: "0.1.0"
-updated: "2026-03-19"
+updated: "2026-06-20"
+temporal:
+  valid_from: "2026-03-19"
+signing:
+  scheme: ed25519
+  scope: this-manifest
+  public_key: "MCowBQYDK2VwAyEAuipgusnqU9vjf3p2yPVLD/DmERT6tBbLOqEETdxAhMU="
+  signature: "https://raw.githubusercontent.com/Cantara/maven-infrastructure/master/knowledge.yaml.sig"
 
 units:
   - id: readme
@@ -13,6 +20,9 @@ units:
     validated: "2026-03-15"
     hints:
       token_estimate: 1000
+      content_hash:
+        algorithm: sha256
+        value: ""
 
   - id: claude
     path: CLAUDE.md
@@ -22,3 +32,6 @@ units:
     validated: "2026-03-15"
     hints:
       token_estimate: 300
+      content_hash:
+        algorithm: sha256
+        value: ""
