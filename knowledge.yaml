@@ -1,4 +1,4 @@
-kcp_version: "0.21"
+kcp_version: "0.26"
 project: maven-infrastructure
 description: "A collection of tools and recepies to make your Maven world shine :)"
 version: "0.1.0"
@@ -20,9 +20,6 @@ units:
     validated: "2026-03-15"
     hints:
       token_estimate: 1000
-      content_hash:
-        algorithm: sha256
-        value: ""
 
   - id: claude
     path: CLAUDE.md
@@ -32,6 +29,11 @@ units:
     validated: "2026-03-15"
     hints:
       token_estimate: 300
-      content_hash:
-        algorithm: sha256
-        value: ""
+
+# Serving Endpoint Binding (KCP SPEC v0.26 §3.12): authoritative manifest URL
+# and authorized MCP representative. Ignored by pre-0.26 verifiers.
+serving:
+  manifest:
+    - https://raw.githubusercontent.com/Cantara/maven-infrastructure/master/knowledge.yaml
+  mcp:
+    - https://mcp.cantara.no/mcp
